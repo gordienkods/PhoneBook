@@ -75,6 +75,15 @@ public class PhoneContact {
         "ADDRESS: " + this.address;
         return phoneContact;
     }
+
+    public Boolean isPhoneContactAlreadyPresents(PhoneContact phoneContact){
+        if (phoneContact.getFirstName().equals(this.firstName) &&
+            phoneContact.getLastName().equals(this.lastName)){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 class PhoneNumberAndType {

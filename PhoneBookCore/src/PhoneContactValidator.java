@@ -1,5 +1,7 @@
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PhoneContactValidator {
 
@@ -27,8 +29,8 @@ public class PhoneContactValidator {
 
     private boolean validateBirthDate(){
         try {
-            birthDateFormat.format(phoneContact.getBirthDate());
-        } catch (IllegalArgumentException e) {
+            birthDateFormat.parse(phoneContact.getBirthDate());
+        } catch (ParseException e) {
             this.validateErrors.add("Unexpected birth day format! Please, use next format: 'dd.MM.yyyy'.");
             return false;
         }
