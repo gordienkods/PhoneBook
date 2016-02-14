@@ -1,9 +1,10 @@
 package PhoneBookCore;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Base64;
 
-public class PhoneContact {
+public class PhoneContact implements Serializable {
 
     private String firstName = "undefined";
     private String lastName = "undefined";
@@ -84,7 +85,7 @@ public class PhoneContact {
     }
 }
 
-class PhoneNumberAndType {
+class PhoneNumberAndType implements Serializable {
 
     String phoneNumber = "undefined";
     String phoneType = "undefined";

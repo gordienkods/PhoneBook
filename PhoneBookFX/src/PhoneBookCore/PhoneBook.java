@@ -1,10 +1,6 @@
 package PhoneBookCore;
 
-import Exceptions.getDataFromPhoneBookFileException;
-
-import javax.xml.bind.DatatypeConverter;
 import java.io.*;
-import java.util.Base64;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,13 +23,13 @@ public class PhoneBook implements Serializable {
 
     public void add(PhoneContact phoneContact){
         this.phoneBook.add(phoneContact);
-        saveToFile();
+        serializeToFile();
     }
 
     public void initialize () {
         create();
         try {
-            this.phoneBookFile = new File ("phoneBook.txt");
+            this.phoneBookFile = new File ("phoneBook.ser");
         } catch (Exception e) {
             System.out.println("ERROR: " + e.getMessage());
             for (StackTraceElement element:e.getStackTrace()){
@@ -41,19 +37,24 @@ public class PhoneBook implements Serializable {
             }
         }
         if (!this.phoneBookFile.isDirectory() && this.phoneBookFile.exists()) {
-            System.out.println("'phoneBook.txt' is present.");
-            decodeDataFromPhoneBookFile();
+            System.out.println("'phoneBook.ser' is present.");
+            PhoneBook restoredPhoneBook = deserializeFromFile();
+            this.phoneBook = restoredPhoneBook.phoneBook;
+            this.userName = restoredPhoneBook.userName;
+            this.password = restoredPhoneBook.password;
+            System.out.println("DE SERIALIZES PhoneBook is:\n" + restoredPhoneBook.toString());
         } else {
-            System.out.println("'phoneBook.txt' is NOT present.");
+            System.out.println("'phoneBook.ser' is NOT present.");
         }
     }
 
-    private void saveToFile(){
-        try (FileWriter fw = new FileWriter(this.phoneBookFile);
-             BufferedWriter bw = new BufferedWriter(fw);
-             PrintWriter pw = new PrintWriter(bw)) {
-             pw.print(this);
-            System.out.println("'phoneBook' successfully write to file.");
+    private void serializeToFile() {
+        try {
+            try (FileOutputStream fos = new FileOutputStream(this.phoneBookFile);
+                 ObjectOutputStream ous = new ObjectOutputStream(fos)) {
+                 ous.writeObject(this);
+                 System.out.println("'phoneBook' has been serialized to file '" + this.phoneBookFile + "'");
+            }
         } catch (Exception e){
             System.out.println("ERROR: " + e.getMessage());
             for (StackTraceElement element:e.getStackTrace()){
@@ -62,15 +63,21 @@ public class PhoneBook implements Serializable {
         }
     }
 
-    private String decodeDataFromPhoneBookFile(){
-        String encodedData = getDataFromPhoneBookFile();
-        if (encodedData == null){
-            throw new getDataFromPhoneBookFileException();
+    public PhoneBook deserializeFromFile(){
+        PhoneBook phoneBook = null;
+        try {
+            try (FileInputStream fis = new FileInputStream(this.phoneBookFile);
+                ObjectInputStream ois = new ObjectInputStream(fis)) {
+                phoneBook = (PhoneBook) ois.readObject();
+                System.out.println("'phoneBook' has been de serialized from file '" + this.phoneBookFile + "'");
+            }
+        } catch (Exception e){
+            System.out.println("ERROR: " + e.getMessage());
+            for (StackTraceElement element:e.getStackTrace()){
+                System.out.println(element.toString());
+            }
         }
-        byte [] bytesDecoded = Base64.getDecoder().decode(encodedData.getBytes());
-        encodedData = new String(bytesDecoded);
-        System.out.println(encodedData);
-        return encodedData;
+        return phoneBook;
     }
 
     private String getDataFromPhoneBookFile(){
@@ -80,7 +87,7 @@ public class PhoneBook implements Serializable {
              while ((tmp = br.readLine()) != null){
                  result += tmp;
              }
-             System.out.println("Got line from 'phoneBook.txt':\n" + result);
+             System.out.println("Got line from 'phoneBook.ser':\n" + result);
              return result;
         } catch (Exception e) {
             System.out.println("ERROR: " + e.getMessage());
@@ -100,8 +107,6 @@ public class PhoneBook implements Serializable {
         for (PhoneContact phoneContact : this.phoneBook){
             result += phoneContact;
         }
-        byte [] bytesEncoded = Base64.getEncoder().encode(result.getBytes());
-        result = new String(bytesEncoded);
         return result;
     }
 
