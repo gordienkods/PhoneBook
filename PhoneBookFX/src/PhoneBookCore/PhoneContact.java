@@ -1,6 +1,7 @@
 package PhoneBookCore;
 
 import java.util.ArrayList;
+import java.util.Base64;
 
 public class PhoneContact {
 
@@ -64,18 +65,21 @@ public class PhoneContact {
     @Override
     public String toString(){
         String phoneAndType = "";
+        String phoneContact = "";
         for(int i = 0; i < this.phoneNumberAndTypeList.size(); i++){
-            phoneAndType = phoneAndType +
-                           "PHONE NUMBER: " + phoneNumberAndTypeList.get(i).getPhoneNumber() + "\n" +
-                           "PHONE TYPE: "+ phoneNumberAndTypeList.get(i).getPhoneType() + "\n";
+            phoneAndType +=
+            "PHONE NUMBER: " + phoneNumberAndTypeList.get(i).getPhoneNumber() + "\n" +
+            "PHONE TYPE: "+ phoneNumberAndTypeList.get(i).getPhoneType() + "\n";
         }
-        String phoneContact =
+        phoneContact =
+        "------------------------------------------\n" +
         "FIRST NAME: " + this.firstName + "\n" +
         "LAST NAME: " + this.lastName + "\n" +
         "EMAIL: " + this.email + "\n" +
         phoneAndType +
         "BIRTH DATE: " + birthDate + "\n" +
-        "ADDRESS: " + this.address;
+        "ADDRESS: " + this.address + "\n" +
+        "------------------------------------------\n";
         return phoneContact;
     }
 }

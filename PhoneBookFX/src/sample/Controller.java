@@ -49,6 +49,13 @@ public class Controller {
         phoneContact.setAddress(this.adress.getText());
         validator.validate();
         phoneBook.add(phoneContact);
+        this.firstName.setText("");
+        this.lastName.setText("");
+        this.phoneNumber.setText("");
+        this.phoneType.setText("");
+        this.email.setText("");
+        this.birthday.setText("");
+        this.adress.setText("");
     }
 
 
