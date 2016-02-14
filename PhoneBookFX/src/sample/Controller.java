@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class Controller {
 
-    @FXML private PhoneBook phoneBook = new PhoneBook();
+    private static PhoneBook phoneBook = new PhoneBook();
     @FXML private TextField firstName = new TextField("");
     @FXML private TextField  lastName = new TextField("");
     @FXML private TextField  phoneNumber = new TextField("");
@@ -24,15 +24,23 @@ public class Controller {
     @FXML private TextField birthday = new TextField("");
     @FXML private TextField adress = new TextField("");
 
-    private void initPhoneBook(){
-        this.phoneBook.create();
+    public void goToCreateNewContactWindow(ActionEvent event) throws IOException{
+        Parent createWindow = FXMLLoader.load(getClass().getResource("FXML/CreateWindow.fxml"));
+        Scene createWindowScene = new Scene(createWindow);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(createWindowScene);
     }
 
-    public void addPhoneContact(ActionEvent event) throws IOException {
-        initPhoneBook();
+    public void goToMainWindow(ActionEvent event) throws IOException{
+        Parent createMainMenu = FXMLLoader.load(getClass().getResource("FXML/MainMenu.fxml"));
+        Scene createWindowScene = new Scene(createMainMenu);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(createWindowScene);
+    }
+
+    public void createNewContact(ActionEvent event) throws IOException {
         PhoneContact phoneContact = new PhoneContact();
         PhoneContactValidator validator = new PhoneContactValidator(phoneContact);
-
         phoneContact.setFirstName(this.firstName.getText());
         phoneContact.setLastName(this.lastName.getText());
         phoneContact.setPhoneNumberAndType(this.phoneNumber.getText(), this.phoneType.getText());
@@ -40,11 +48,10 @@ public class Controller {
         phoneContact.setBirthDate(this.birthday.getText());
         phoneContact.setAddress(this.adress.getText());
         validator.validate();
-        System.out.println(phoneContact.toString());
-        System.out.println(validator.getValidateErrors());
-
-//        phoneBook.add()
+        phoneBook.add(phoneContact);
     }
+
+
 
     public PhoneBook getPhoneBook() {
         return phoneBook;

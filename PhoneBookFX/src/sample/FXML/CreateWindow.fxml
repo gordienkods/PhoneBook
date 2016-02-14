@@ -48,8 +48,8 @@
         <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.columnSpan="5" alignment="CENTER_LEFT"
               fx:id="adress" editable="true"/>
 
-        <Button GridPane.columnIndex="0" GridPane.rowIndex="7" text="ADD" alignment="CENTER_LEFT" onAction="#addPhoneContact"/>
-        <Button GridPane.columnIndex="1" GridPane.rowIndex="7" text="CANCEL" alignment="CENTER_LEFT"/>
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="7" text="ADD" alignment="CENTER_LEFT" onAction="#createNewContact"/>
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="7" text="CANCEL" alignment="CENTER_LEFT" onAction="#goToMainWindow"/>
 
 
 
