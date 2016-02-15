@@ -17,9 +17,13 @@ public class Controller {
 
     private static final PhoneBook PHONE_BOOK = new PhoneBook();
     @FXML private TextField firstName = new TextField("");
-    @FXML private TextField  lastName = new TextField("");
-    @FXML private TextField  phoneNumber = new TextField("");
-    @FXML private TextField phoneType = new TextField("");
+    @FXML private TextField lastName = new TextField("");
+    @FXML private TextField phoneNumber1 = new TextField("");
+    @FXML private TextField phoneType1 = new TextField("");
+    @FXML private TextField phoneNumber2 = new TextField("");
+    @FXML private TextField phoneType2 = new TextField("");
+    @FXML private TextField phoneNumber3 = new TextField("");
+    @FXML private TextField phoneType3 = new TextField("");
     @FXML private TextField email = new TextField("");
     @FXML private TextField birthday = new TextField("");
     @FXML private TextField adress = new TextField("");
@@ -43,7 +47,9 @@ public class Controller {
         PhoneContactValidator validator = new PhoneContactValidator(phoneContact);
         phoneContact.setFirstName(this.firstName.getText());
         phoneContact.setLastName(this.lastName.getText());
-        phoneContact.setPhoneNumberAndType(this.phoneNumber.getText(), this.phoneType.getText());
+        phoneContact.setPhoneNumberAndType(this.phoneNumber1.getText(), this.phoneType1.getText());
+        phoneContact.setPhoneNumberAndType(this.phoneNumber2.getText(), this.phoneType2.getText());
+        phoneContact.setPhoneNumberAndType(this.phoneNumber3.getText(), this.phoneType3.getText());
         phoneContact.setEmail(this.email.getText());
         phoneContact.setBirthDate(this.birthday.getText());
         phoneContact.setAddress(this.adress.getText());
@@ -51,8 +57,12 @@ public class Controller {
         PHONE_BOOK.add(phoneContact);
         this.firstName.setText("");
         this.lastName.setText("");
-        this.phoneNumber.setText("");
-        this.phoneType.setText("");
+        this.phoneNumber1.setText("");
+        this.phoneType1.setText("");
+        this.phoneNumber2.setText("");
+        this.phoneType2.setText("");
+        this.phoneNumber3.setText("");
+        this.phoneType3.setText("");
         this.email.setText("");
         this.birthday.setText("");
         this.adress.setText("");

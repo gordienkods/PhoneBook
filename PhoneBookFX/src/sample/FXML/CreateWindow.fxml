@@ -24,32 +24,52 @@
                   fx:id="lastName" editable="true"/>
 
         <Label GridPane.columnIndex="0" GridPane.rowIndex="2" maxWidth="Infinity" maxHeight="Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
-               text="PHONE NUMBER:" alignment="CENTER_LEFT"/>
+               text="PHONE NUMBER 1:" alignment="CENTER_LEFT"/>
         <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.columnSpan="5" alignment="CENTER_LEFT"
-                  fx:id="phoneNumber" editable="true"/>
+                  fx:id="phoneNumber1" editable="true"/>
 
         <Label GridPane.columnIndex="0" GridPane.rowIndex="3" maxWidth="Infinity" maxHeight="Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
-               text="PHONE TYPE:" alignment="CENTER_LEFT"/>
+               text="PHONE TYPE 1:" alignment="CENTER_LEFT"/>
         <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="5" alignment="CENTER_LEFT"
-              fx:id="phoneType" editable="true"/>
+              fx:id="phoneType1" editable="true"/>
 
         <Label GridPane.columnIndex="0" GridPane.rowIndex="4" maxWidth="Infinity" maxHeight="Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
-               text="EMAIL:" alignment="CENTER_LEFT"/>
+               text="PHONE NUMBER 2:" alignment="CENTER_LEFT"/>
         <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.columnSpan="5" alignment="CENTER_LEFT"
-              fx:id="email" editable="true"/>
+                   fx:id="phoneNumber2" editable="true"/>
 
         <Label GridPane.columnIndex="0" GridPane.rowIndex="5" maxWidth="Infinity" maxHeight="Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
-               text="BIRTHDAY:" alignment="CENTER_LEFT"/>
+               text="PHONE TYPE 2:" alignment="CENTER_LEFT"/>
         <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.columnSpan="5" alignment="CENTER_LEFT"
-              fx:id="birthday" editable="true"/>
+                   fx:id="phoneType2" editable="true"/>
 
         <Label GridPane.columnIndex="0" GridPane.rowIndex="6" maxWidth="Infinity" maxHeight="Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
-               text="ADRESS:" alignment="CENTER_LEFT"/>
+               text="PHONE NUMBER 3:" alignment="CENTER_LEFT"/>
         <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.columnSpan="5" alignment="CENTER_LEFT"
+                   fx:id="phoneNumber3" editable="true"/>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="7" maxWidth="Infinity" maxHeight="Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
+               text="PHONE TYPE 3:" alignment="CENTER_LEFT"/>
+        <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.columnSpan="5" alignment="CENTER_LEFT"
+                   fx:id="phoneType3" editable="true"/>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="8" maxWidth="Infinity" maxHeight="Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
+               text="EMAIL:" alignment="CENTER_LEFT"/>
+        <TextField GridPane.columnIndex="1" GridPane.rowIndex="8" GridPane.columnSpan="5" alignment="CENTER_LEFT"
+              fx:id="email" editable="true"/>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="9" maxWidth="Infinity" maxHeight="Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
+               text="BIRTHDAY:" alignment="CENTER_LEFT"/>
+        <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.columnSpan="5" alignment="CENTER_LEFT"
+              fx:id="birthday" editable="true"/>
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="10" maxWidth="Infinity" maxHeight="Infinity" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
+               text="ADRESS:" alignment="CENTER_LEFT"/>
+        <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" GridPane.columnSpan="5" alignment="CENTER_LEFT"
               fx:id="adress" editable="true"/>
 
-        <Button GridPane.columnIndex="0" GridPane.rowIndex="7" text="ADD" alignment="CENTER_LEFT" onAction="#createNewContact"/>
-        <Button GridPane.columnIndex="1" GridPane.rowIndex="7" text="CANCEL" alignment="CENTER_LEFT" onAction="#goToMainWindow"/>
+        <Button GridPane.columnIndex="0" GridPane.rowIndex="11" text="ADD" alignment="CENTER_LEFT" onAction="#createNewContact"/>
+        <Button GridPane.columnIndex="1" GridPane.rowIndex="11" text="CANCEL" alignment="CENTER_LEFT" onAction="#goToMainWindow"/>
 
 
 

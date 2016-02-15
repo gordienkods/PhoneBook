@@ -10,7 +10,6 @@ public class PhoneBook implements Serializable {
     private String userName = "userName";
     private String password = "password";
     private File phoneBookFile;
-    private String decodetData;
 
     public PhoneBook() {
         this.initialize();
@@ -22,6 +21,7 @@ public class PhoneBook implements Serializable {
     }
 
     public void add(PhoneContact phoneContact){
+        isPhoneContactPresents(phoneContact);
         this.phoneBook.add(phoneContact);
         serializeToFile();
     }
@@ -98,7 +98,20 @@ public class PhoneBook implements Serializable {
         return null;
     }
 
-
+    private void isPhoneContactPresents(PhoneContact phoneContact){
+        for (PhoneContact contactInPhoneBook : phoneBook){
+            if (contactInPhoneBook.equals(phoneContact)){
+                System.out.println("THERE ARE SIMILAR CONTACTS:" +
+                        "\n**********************\n" +
+                        contactInPhoneBook.toString() +
+                        "\n**********************\n" +
+                        phoneContact.toString() + "\n" +
+                        "**********************\n" );
+            } else {
+                System.out.println("THERE ARE NOT SIMILAR CONTACTS");
+            }
+        }
+    }
 
     @Override
     public String toString() {

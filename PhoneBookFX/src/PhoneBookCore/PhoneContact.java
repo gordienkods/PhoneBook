@@ -22,7 +22,18 @@ public class PhoneContact implements Serializable {
 
     public void setPhoneNumberAndType(String phoneNumber, String phoneType) {
         PhoneNumberAndType phoneNumberAndType = new PhoneNumberAndType(phoneNumber, phoneType);
-        this.phoneNumberAndTypeList.add(phoneNumberAndType);
+        if (phoneNumber.length() != 0 || !isPhoneNumberPresents(phoneNumberAndType)) {
+            this.phoneNumberAndTypeList.add(phoneNumberAndType);
+        }
+    }
+
+    private boolean isPhoneNumberPresents(PhoneNumberAndType phoneNumberAndType) {
+        for (PhoneNumberAndType current : this.phoneNumberAndTypeList ){
+            if(current.equals(phoneNumberAndType)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public void setPhoneNumber(String phoneNumber) {
@@ -89,6 +100,7 @@ public class PhoneContact implements Serializable {
         int result = 1;
         result = baseValue * result + this.firstName.hashCode();
         result = baseValue * result + this.lastName.hashCode();
+        result = baseValue * result + this.birthDate.hashCode();
         return result;
     }
 
@@ -110,9 +122,11 @@ public class PhoneContact implements Serializable {
         if (!this.lastName.equals(other.lastName)) {
             return false;
         }
+        if (!this.birthDate.equals(other.birthDate)) {
+            return false;
+        }
         return true;
     }
-
 
 }
 
