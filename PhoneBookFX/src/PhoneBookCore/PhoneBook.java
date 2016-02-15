@@ -21,10 +21,27 @@ public class PhoneBook implements Serializable {
     }
 
     public void add(PhoneContact phoneContact){
-        isPhoneContactPresents(phoneContact);
+        String tmpFirstName = "";
+        int attempts = 0;
+        if(isPhoneContactPresents(phoneContact)){
+            while (isPhoneContactPresents(phoneContact) || attempts < 10) {
+                tmpFirstName = phoneContact.getFirstName() + "_" + attempts;
+                phoneContact.setFirstName(tmpFirstName);
+                attempts++;
+            }
+        }
         this.phoneBook.add(phoneContact);
+        System.out.println("ALL PHONE BOOK:\n" + this.phoneBook.toString());
         serializeToFile();
     }
+
+//    private void checkAndMergePhoneContacts(PhoneContact phoneContact) {
+//        PhoneContact [] tmpArray = this.phoneBook.toArray(new PhoneContact[this.phoneBook.size()]);
+//        PhoneContact tmp;
+//        if (isPhoneContactPresents(phoneContact)){
+//
+//        }
+//    }
 
     public void initialize () {
         create();
@@ -98,7 +115,7 @@ public class PhoneBook implements Serializable {
         return null;
     }
 
-    private void isPhoneContactPresents(PhoneContact phoneContact){
+    private boolean isPhoneContactPresents(PhoneContact phoneContact){
         for (PhoneContact contactInPhoneBook : phoneBook){
             if (contactInPhoneBook.equals(phoneContact)){
                 System.out.println("THERE ARE SIMILAR CONTACTS:" +
@@ -107,10 +124,10 @@ public class PhoneBook implements Serializable {
                         "\n**********************\n" +
                         phoneContact.toString() + "\n" +
                         "**********************\n" );
-            } else {
-                System.out.println("THERE ARE NOT SIMILAR CONTACTS");
+                return true;
             }
         }
+        return false;
     }
 
     @Override
