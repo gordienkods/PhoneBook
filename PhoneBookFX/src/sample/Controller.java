@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class Controller {
 
-    private static PhoneBook phoneBook = new PhoneBook();
+    private static final PhoneBook PHONE_BOOK = new PhoneBook();
     @FXML private TextField firstName = new TextField("");
     @FXML private TextField  lastName = new TextField("");
     @FXML private TextField  phoneNumber = new TextField("");
@@ -48,7 +48,7 @@ public class Controller {
         phoneContact.setBirthDate(this.birthday.getText());
         phoneContact.setAddress(this.adress.getText());
         validator.validate();
-        phoneBook.add(phoneContact);
+        PHONE_BOOK.add(phoneContact);
         this.firstName.setText("");
         this.lastName.setText("");
         this.phoneNumber.setText("");
@@ -58,10 +58,8 @@ public class Controller {
         this.adress.setText("");
     }
 
-
-
     public PhoneBook getPhoneBook() {
-        return phoneBook;
+        return PHONE_BOOK;
     }
 
 //    public String getFirstName() {
