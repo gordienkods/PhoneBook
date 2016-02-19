@@ -10,6 +10,7 @@ public class PhoneBook implements Serializable {
     private String userName = "userName";
     private String password = "password";
     private File phoneBookFile;
+    private Integer nameUniqDigit = 1;
 
     public PhoneBook() {
         this.initialize();
@@ -22,17 +23,18 @@ public class PhoneBook implements Serializable {
 
     public void add(PhoneContact phoneContact){
         String tmpFirstName = "";
-        int attempts = 0;
-        if(isPhoneContactPresents(phoneContact)){
-            while (isPhoneContactPresents(phoneContact) || attempts < 10) {
-                tmpFirstName = phoneContact.getFirstName() + "_" + attempts;
-                phoneContact.setFirstName(tmpFirstName);
-                attempts++;
-            }
+        tmpFirstName = phoneContact.getFirstName();
+        while(isPhoneContactPresents(phoneContact)){
+              if (this.nameUniqDigit != 1) {
+                  tmpFirstName = tmpFirstName.replace("_" + this.nameUniqDigit, "" );
+              }
+              tmpFirstName += "_" + this.nameUniqDigit++;
+              phoneContact.setFirstName(tmpFirstName);
         }
         this.phoneBook.add(phoneContact);
         System.out.println("ALL PHONE BOOK:\n" + this.phoneBook.toString());
         serializeToFile();
+        this.nameUniqDigit = 1;
     }
 
 //    private void checkAndMergePhoneContacts(PhoneContact phoneContact) {

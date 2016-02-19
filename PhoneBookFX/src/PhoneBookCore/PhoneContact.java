@@ -3,7 +3,7 @@ package PhoneBookCore;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PhoneContact implements Serializable {
+public class PhoneContact implements Serializable, Comparable {
 
     private String firstName = "undefined";
     private String lastName = "undefined";
@@ -126,6 +126,15 @@ public class PhoneContact implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int compareTo(Object obj){
+        String commonName1, commonName2;
+        PhoneContact contact = (PhoneContact) obj;
+        commonName1 = this.firstName + this.lastName;
+        commonName2 = contact.firstName + contact.lastName;
+        return commonName1.compareTo(commonName2);
     }
 
 }
