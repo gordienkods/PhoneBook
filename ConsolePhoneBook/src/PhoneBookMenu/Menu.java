@@ -4,13 +4,15 @@ import PhoneBookCore.PhoneBook;
 import PhoneBookCore.PhoneContact;
 import PhoneBookCore.PhoneNumberAndType;
 
-import java.awt.*;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
     private PhoneBook phoneBook;
+    private Scanner sc = new Scanner(System.in);
 
     public Menu (PhoneBook phoneBook)  {
         this.phoneBook = phoneBook;
@@ -42,26 +44,24 @@ public class Menu {
                     editContactMenu();
                     break;
                 case "3":
-
-                    return;
+                    deleteContactMenu();
+                    break;
                 case "4":
-
-                    return;
+                    getAllContactsMenu();
+                    break;
                 case "5":
-
-                    return;
+                    searchByFirstOrLasName();
+                    break;
                 case "6":
-
-                    return;
+                    searchByAnyPartOfName();
+                    break;
                 case "7":
-
-                    return;
+                    searchByPhoneNumber();
+                    break;
                 case "8":
 
                     return;
-                case "0":
-
-                    return;
+                case "0": return;
 
                 default:
                     System.out.println("Unexpected command!");
@@ -128,7 +128,6 @@ public class Menu {
         phoneBook.sort(PhoneBook.SortVariants.BY_LAST_NAME);
         System.out.println(phoneBook.toString());
         Scanner sc = new Scanner(System.in);
-        phoneBook.toString();
         System.out.print("\n\n ***EDIT CONTACT MENU***\n\n");
         System.out.print("Enter number of contact: ");
         Integer numberOfContact = sc.nextInt() - 1;
@@ -165,7 +164,27 @@ public class Menu {
         phoneBook.serializeToFile();
 
         System.out.println("Contact '" + (numberOfContact + 1) + "' successfully updated!");
+    }
 
+    public void deleteContactMenu(){
+        PhoneContact deletePhoneContact;
+        phoneBook.sort(PhoneBook.SortVariants.BY_LAST_NAME);
+        System.out.println(phoneBook.toString());
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("\n\n ***DELETE CONTACT MENU***\n\n");
+        System.out.print("Enter number of contact: ");
+        Integer numberOfContact = sc.nextInt() - 1;
+
+        if (numberOfContact < 0 || numberOfContact > phoneBook.size()){
+            System.out.println("Unexpected contact number!");
+            return;
+        }
+
+        phoneBook.delete(phoneBook.get(numberOfContact));
+        phoneBook.serializeToFile();
+
+        System.out.println("Contact '" + (numberOfContact + 1) + "' successfully deleted!");
     }
 
     private void editPhoneAndPhoneTypesSubMenu(PhoneContact phoneContact) {
@@ -178,6 +197,67 @@ public class Menu {
             phoneNumberAndTypeList.get(i).setPhoneNumber(sc.next());
             System.out.print("ENTER NEW PHONE TYPE [" + (1+i) + " of " + (1+i) +" ]: ");
             phoneNumberAndTypeList.get(i).setPhoneType(sc.next());
+        }
+    }
+
+    private void getAllContactsMenu(){
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n\n***Get all contacts menu***\n\n" +
+                    "[1] Get all contacts sorted by LAST NAME\n" +
+                    "[2] Get all contacts sorted by FIRST NAME\n" +
+                    "[0] Exit");
+            Integer point = sc.nextInt();
+            switch (point) {
+                case 0:
+                    return;
+                case 1:
+                    phoneBook.sort(PhoneBook.SortVariants.BY_LAST_NAME);
+                    System.out.println(phoneBook);
+                    break;
+                case 2:
+                    phoneBook.sort(PhoneBook.SortVariants.BY_FIRST_NAME);
+                    System.out.println(phoneBook);
+                    break;
+                default:
+                    phoneBook.sort(PhoneBook.SortVariants.BY_LAST_NAME);
+                    System.out.println(phoneBook);
+                    break;
+            }
+        }
+
+    }
+
+    private void searchByFirstOrLasName(){
+        System.out.println("\n\n*** SEARCH BY FIRST OR LAST NAME MENU ***\n\n");
+        System.out.print("Enter full FIRST/LAST name: ");
+        List<Integer> searchResults = phoneBook.searchByFirstOrLastName(sc.next());
+        if(searchResults.size() == 0) {
+            System.out.println("No matches found!");
+        } else {
+            System.out.println(phoneBook.toString(searchResults));
+        }
+    }
+
+    private void searchByAnyPartOfName(){
+        System.out.println("\n\n*** SEARCH BY ANY PART OF NAME MENU ***\n\n");
+        System.out.print("Enter any part of FIRST name: ");
+        List<Integer> searchResults = phoneBook.searchByAnyPartOfName(sc.next());
+        if(searchResults.size() == 0) {
+            System.out.println("No matches found!");
+        } else {
+            System.out.println(phoneBook.toString(searchResults));
+        }
+    }
+
+    private void searchByPhoneNumber(){
+        System.out.println("\n\n*** SEARCH BY PHONE NUMBER MENU ***\n\n");
+        System.out.print("Enter phone number: ");
+        List<Integer> searchResults = phoneBook.searchByPhoneNumber(sc.next());
+        if(searchResults.size() == 0) {
+            System.out.println("No matches found!");
+        } else {
+            System.out.println(phoneBook.toString(searchResults));
         }
     }
 

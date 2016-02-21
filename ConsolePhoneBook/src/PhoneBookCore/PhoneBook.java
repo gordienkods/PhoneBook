@@ -111,6 +111,16 @@ public class PhoneBook implements Serializable {
         return phoneBook.get(i);
     }
 
+    public void delete(PhoneContact phoneContactForDeletiong) {
+        List tmpPhoneBook = new ArrayList<PhoneContact>();
+        for(PhoneContact phoneContact : phoneBook ){
+            if(!phoneContact.equals(phoneContactForDeletiong)){
+                tmpPhoneBook.add(phoneContact);
+            }
+        }
+        phoneBook = tmpPhoneBook;
+    }
+
     public void serializeToFile() {
         try {
             try (FileOutputStream fos = new FileOutputStream(this.phoneBookFile);
@@ -159,13 +169,80 @@ public class PhoneBook implements Serializable {
         return false;
     }
 
+    public List<Integer> serchByFirstName(String firstName){
+        List<Integer> searchResults = new ArrayList<>();
+        sort(SortVariants.BY_FIRST_NAME);
+        for(int i =0 ; i < phoneBook.size(); i++){
+            if(phoneBook.get(i).getFirstName().contains(firstName)){
+                searchResults.add(i);
+            }
+        }
+        return searchResults;
+    }
+
+    public List<Integer> serchByLastName(String lastName){
+        List<Integer> searchResults = new ArrayList<>();
+        sort(SortVariants.BY_LAST_NAME);
+        for(int i =0 ; i < phoneBook.size(); i++){
+            if(phoneBook.get(i).getFirstName().contains(lastName)){
+                searchResults.add(i);
+            }
+        }
+        return searchResults;
+    }
+
+    public List<Integer> searchByFirstOrLastName(String firstOrLastName){
+        List<Integer> searchResults = new ArrayList<>();
+        sort(SortVariants.BY_LAST_NAME);
+        for(int i =0 ; i < phoneBook.size(); i++){
+            if(phoneBook.get(i).getFirstName().equals(firstOrLastName) || phoneBook.get(i).getLastName().equals(firstOrLastName)){
+                searchResults.add(i);
+            }
+        }
+        return searchResults;
+    }
+
+    public List<Integer> searchByAnyPartOfName(String anyPartOfName){
+        List<Integer> searchResults = new ArrayList<>();
+        sort(SortVariants.BY_LAST_NAME);
+        for(int i =0 ; i < phoneBook.size(); i++){
+            if(phoneBook.get(i).getFirstName().contains(anyPartOfName)){
+                searchResults.add(i);
+            }
+        }
+        return searchResults;
+    }
+
+    public List<Integer> searchByPhoneNumber(String phoneNumber){
+        List<Integer> searchResults = new ArrayList<>();
+        sort(SortVariants.BY_LAST_NAME);
+        for(int i =0 ; i < phoneBook.size(); i++){
+            List<PhoneNumberAndType> phoneNumberAndTypes = phoneBook.get(i).getPhoneNumberAndTypeList();
+            for (PhoneNumberAndType phoneNumberAndType : phoneNumberAndTypes){
+                if (phoneNumberAndType.getPhoneNumber().equals(phoneNumber)){
+                    searchResults.add(i);
+                    break;
+                }
+            }
+        }
+        return searchResults;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-//            result += this.userName + "\n" + this.password + "\n";
         for (int i = 0; i < phoneBook.size(); i++){
             sb.append("---------- PHONE CONTACT NUMBER: " + (i + 1) + " ----------\n");
             sb.append(phoneBook.get(i).toString());
+        }
+        return sb.toString();
+    }
+
+    public String toString(List<Integer> searchResults) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < searchResults.size(); i++){
+            sb.append("---------- PHONE CONTACT NUMBER: " + (searchResults.get(i) + 1) + " ----------\n");
+            sb.append(phoneBook.get(searchResults.get(i)).toString());
         }
         return sb.toString();
     }
