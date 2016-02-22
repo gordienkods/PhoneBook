@@ -1,6 +1,9 @@
 package PhoneBookCore;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 public class PhoneContact implements Serializable, Comparable {
@@ -9,8 +12,9 @@ public class PhoneContact implements Serializable, Comparable {
     private String lastName = "undefined";
     private ArrayList<PhoneNumberAndType> phoneNumberAndTypeList = new ArrayList<>();
     private String email = "undefined";
-    private String birthDate = "undefined";
+    private LocalDate birthDate = null;
     private String address = "undefined";
+    private final static DateTimeFormatter dateFormatPattern = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -46,7 +50,12 @@ public class PhoneContact implements Serializable, Comparable {
     }
 
     public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+        try {
+            this.birthDate = LocalDate.parse(birthDate, dateFormatPattern);
+        } catch (DateTimeParseException e) {
+            System.out.println("Incorrect date format. Value will set to 'none'");
+            this.birthDate = null;
+        }
     }
 
     public void setAddress(String address) {
@@ -65,7 +74,7 @@ public class PhoneContact implements Serializable, Comparable {
         return email;
     }
 
-    public String getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -79,21 +88,28 @@ public class PhoneContact implements Serializable, Comparable {
 
     @Override
     public String toString(){
-        String phoneAndType = "";
-        String phoneContact;
-        for(int i = 0; i < this.phoneNumberAndTypeList.size(); i++){
-            phoneAndType +=
-            "PHONE NUMBER: " + phoneNumberAndTypeList.get(i).getPhoneNumber() + "\n" +
-            "PHONE TYPE: "+ phoneNumberAndTypeList.get(i).getPhoneType() + "\n";
+        StringBuilder phoneContact = new StringBuilder();
+        StringBuilder phoneAndType = new StringBuilder();
+        String birthDate;
+
+        if (this.birthDate == null ){
+            birthDate = "none";
+        } else {
+            birthDate = this.birthDate.format(dateFormatPattern);
         }
-        phoneContact =
-        "FIRST NAME: " + this.firstName + "\n" +
-        "LAST NAME: " + this.lastName + "\n" +
-        "EMAIL: " + this.email + "\n" +
-        phoneAndType +
-        "BIRTH DATE: " + birthDate + "\n" +
-        "ADDRESS: " + this.address + "\n";
-        return phoneContact;
+
+        for(int i = 0; i < this.phoneNumberAndTypeList.size(); i++){
+            phoneAndType.append("PHONE NUMBER: " + phoneNumberAndTypeList.get(i).getPhoneNumber() + "\n")
+                        .append("PHONE TYPE: "+ phoneNumberAndTypeList.get(i).getPhoneType() + "\n");
+        }
+
+        phoneContact.append("FIRST NAME: " + this.firstName + "\n")
+                    .append("LAST NAME: " + this.lastName + "\n")
+                    .append("EMAIL: " + this.email + "\n")
+                    .append(phoneAndType)
+                    .append("BIRTH DATE: " + birthDate  + "\n")
+                    .append("ADDRESS: " + this.address + "\n");
+        return phoneContact.toString();
     }
 
     @Override
@@ -136,7 +152,9 @@ public class PhoneContact implements Serializable, Comparable {
         PhoneContact contact = (PhoneContact) obj;
         commonName1 = this.firstName + this.lastName;
         commonName2 = contact.firstName + contact.lastName;
-        return commonName1.compareTo(commonName2);
+        Integer dateBirthCompareResult = this.birthDate.compareTo(contact.birthDate);
+        Integer namesCompareResult = commonName1.compareTo(commonName2);
+        return dateBirthCompareResult.compareTo(namesCompareResult);
     }
 
 }

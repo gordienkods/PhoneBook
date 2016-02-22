@@ -1,6 +1,8 @@
 package PhoneBookCore;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -223,6 +225,22 @@ public class PhoneBook implements Serializable {
                     searchResults.add(i);
                     break;
                 }
+            }
+        }
+        return searchResults;
+    }
+
+    public List<Integer> searchByAge (Integer expectedAge){
+        List<Integer> searchResults = new ArrayList<>();
+        sort(SortVariants.BY_LAST_NAME);
+        for(int i =0 ; i < phoneBook.size(); i++){
+           LocalDate birthDate = phoneBook.get(i).getBirthDate();
+            if (birthDate == null) {
+                break;
+            }
+            Period period = Period.between(birthDate,LocalDate.now());
+            if(period.getYears() == expectedAge){
+                searchResults.add(i);
             }
         }
         return searchResults;

@@ -50,17 +50,17 @@ public class Menu {
                     getAllContactsMenu();
                     break;
                 case "5":
-                    searchByFirstOrLasName();
+                    searchByFirstOrLasNameMenu();
                     break;
                 case "6":
-                    searchByAnyPartOfName();
+                    searchByAnyPartOfNameMenu();
                     break;
                 case "7":
-                    searchByPhoneNumber();
+                    searchByPhoneNumberMenu();
                     break;
                 case "8":
-
-                    return;
+                    searchByAgeMenu();
+                    break;
                 case "0": return;
 
                 default:
@@ -89,7 +89,7 @@ public class Menu {
         System.out.print("EMAIL: ");
         phoneContact.setEmail(sc.next());
 
-        System.out.print("BIRTH DATE: ");
+        System.out.print("BIRTH DATE[dd.MM.yyyy]: ");
         phoneContact.setBirthDate(sc.next());
 
         System.out.print("ADDRESS: ");
@@ -228,7 +228,7 @@ public class Menu {
 
     }
 
-    private void searchByFirstOrLasName(){
+    private void searchByFirstOrLasNameMenu(){
         System.out.println("\n\n*** SEARCH BY FIRST OR LAST NAME MENU ***\n\n");
         System.out.print("Enter full FIRST/LAST name: ");
         List<Integer> searchResults = phoneBook.searchByFirstOrLastName(sc.next());
@@ -239,7 +239,7 @@ public class Menu {
         }
     }
 
-    private void searchByAnyPartOfName(){
+    private void searchByAnyPartOfNameMenu(){
         System.out.println("\n\n*** SEARCH BY ANY PART OF NAME MENU ***\n\n");
         System.out.print("Enter any part of FIRST name: ");
         List<Integer> searchResults = phoneBook.searchByAnyPartOfName(sc.next());
@@ -250,10 +250,21 @@ public class Menu {
         }
     }
 
-    private void searchByPhoneNumber(){
+    private void searchByPhoneNumberMenu(){
         System.out.println("\n\n*** SEARCH BY PHONE NUMBER MENU ***\n\n");
         System.out.print("Enter phone number: ");
         List<Integer> searchResults = phoneBook.searchByPhoneNumber(sc.next());
+        if(searchResults.size() == 0) {
+            System.out.println("No matches found!");
+        } else {
+            System.out.println(phoneBook.toString(searchResults));
+        }
+    }
+
+    private void searchByAgeMenu(){
+        System.out.println("\n\n*** SEARCH BY AGE MENU ***\n\n");
+        System.out.print("Enter expected age: ");
+        List<Integer> searchResults = phoneBook.searchByAge(sc.nextInt());
         if(searchResults.size() == 0) {
             System.out.println("No matches found!");
         } else {
