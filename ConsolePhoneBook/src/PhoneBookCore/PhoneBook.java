@@ -246,6 +246,22 @@ public class PhoneBook implements Serializable {
         return searchResults;
     }
 
+    public List<Integer> searchByAgeRange (Integer begin, Integer end){
+        List<Integer> searchResults = new ArrayList<>();
+        sort(SortVariants.BY_LAST_NAME);
+        for(int i =0 ; i < phoneBook.size(); i++){
+            LocalDate birthDate = phoneBook.get(i).getBirthDate();
+            if (birthDate == null) {
+                break;
+            }
+            Period period = Period.between(birthDate,LocalDate.now());
+            if( begin <= period.getYears() && period.getYears() <= end){
+                searchResults.add(i);
+            }
+        }
+        return searchResults;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

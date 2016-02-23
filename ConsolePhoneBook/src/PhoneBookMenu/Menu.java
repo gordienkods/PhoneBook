@@ -262,9 +262,30 @@ public class Menu {
     }
 
     private void searchByAgeMenu(){
+        Integer begin, end, expectedAge;
         System.out.println("\n\n*** SEARCH BY AGE MENU ***\n\n");
-        System.out.print("Enter expected age: ");
-        List<Integer> searchResults = phoneBook.searchByAge(sc.nextInt());
+        System.out.print("Enter expected age or age range [f.e.: 15 - 20]: ");
+        String inputData = sc.nextLine();
+        List<Integer> searchResults;
+        if (inputData.contains(" - ")) {
+            try {
+                begin = Integer.parseInt(inputData.substring(0,inputData.indexOf(" - ")));
+                end = Integer.parseInt(inputData.substring(inputData.indexOf(" - ") + 3, inputData.length()));
+            } catch (NumberFormatException e) {
+                System.out.println("Unexpected format of inputed value!");
+                return;
+            }
+            searchResults = phoneBook.searchByAgeRange(begin,end);
+        } else {
+            try {
+                expectedAge = Integer.parseInt(inputData);
+            } catch (NumberFormatException e) {
+                System.out.println("Unexpected format of inputed value!");
+                return;
+            }
+            searchResults = phoneBook.searchByAge(expectedAge);
+        }
+
         if(searchResults.size() == 0) {
             System.out.println("No matches found!");
         } else {
