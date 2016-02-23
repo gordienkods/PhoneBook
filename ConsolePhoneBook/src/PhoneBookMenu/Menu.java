@@ -3,6 +3,7 @@ package PhoneBookMenu;
 import PhoneBookCore.PhoneBook;
 import PhoneBookCore.PhoneContact;
 import PhoneBookCore.PhoneNumberAndType;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 public class Menu {
 
     private PhoneBook phoneBook;
-    private Scanner sc = new Scanner(System.in);
+    private static final Scanner CONSOLE_SCANNER = new Scanner(System.in);
 
     public Menu (PhoneBook phoneBook)  {
         this.phoneBook = phoneBook;
@@ -20,7 +21,12 @@ public class Menu {
 
     public void start(){
         String command;
-        Scanner sc = new Scanner(System.in);
+
+        if (phoneBook.initialize()) {
+            autorizationMenu();
+        } else {
+            createonNewUserMenu();
+        }
 
         while (true){
             System.out.println(
@@ -35,7 +41,7 @@ public class Menu {
                             "[8] Search contacts by age\n" +
                             "[0] EXIT");
             System.out.print("Enter number of point: ");
-            command = sc.next();
+            command = CONSOLE_SCANNER.nextLine();
             switch (command) {
                 case "1":
                     createNewContactMenu();
@@ -70,30 +76,31 @@ public class Menu {
     }
 
     private void createNewContactMenu() {
-        Scanner sc = new Scanner(System.in);
         PhoneContact phoneContact = new PhoneContact();
-        Integer phoneNumberCouner = 0;
+        Integer phoneNumberCounter = 0;
         System.out.print("\n\n ***CREATION OF NEW CONTACT***\n\n");
 
         System.out.print("How many phones do yuo want to add? ");
-        phoneNumberCouner = sc.nextInt();
+        phoneNumberCounter = CONSOLE_SCANNER.nextInt();
+
+        CONSOLE_SCANNER.nextLine();
 
         System.out.print("FIRST NAME: ");
-        phoneContact.setFirstName(sc.next());
+        phoneContact.setFirstName(CONSOLE_SCANNER.nextLine());
 
         System.out.print("LAST NAME: ");
-        phoneContact.setLastName(sc.next());
+        phoneContact.setLastName(CONSOLE_SCANNER.nextLine());
 
-        addPhoneAndPhoneTypesSubMenu(phoneContact,phoneNumberCouner);
+        addPhoneAndPhoneTypesSubMenu(phoneContact,phoneNumberCounter);
 
         System.out.print("EMAIL: ");
-        phoneContact.setEmail(sc.next());
+        phoneContact.setEmail(CONSOLE_SCANNER.nextLine());
 
         System.out.print("BIRTH DATE[dd.MM.yyyy]: ");
-        phoneContact.setBirthDate(sc.next());
+        phoneContact.setBirthDate(CONSOLE_SCANNER.nextLine());
 
         System.out.print("ADDRESS: ");
-        phoneContact.setAddress(sc.next());
+        phoneContact.setAddress(CONSOLE_SCANNER.nextLine());
 
         phoneBook.add(phoneContact);
 
@@ -110,15 +117,15 @@ public class Menu {
 
     private void addPhoneAndPhoneTypesSubMenu(PhoneContact phoneContact, Integer counter) {
         String tmpPhoneNumber = "", tmpPhoneType = "";
-        Scanner sc = new Scanner(System.in);
+//        Scanner CONSOLE_SCANNER = new Scanner(System.in);
         if (counter <= 0){
             return;
         }
         for (int i = 0; i < counter; i++){
             System.out.print("PHONE NUMBER [" + (1+i) + " of " + counter +" ]: ");
-            tmpPhoneNumber = sc.next();
+            tmpPhoneNumber = CONSOLE_SCANNER.nextLine();
             System.out.print("PHONE TYPE [" + (1+i) + " of " + counter +" ]: ");
-            tmpPhoneType = sc.next();
+            tmpPhoneType = CONSOLE_SCANNER.nextLine();
             phoneContact.setPhoneNumberAndType(tmpPhoneNumber,tmpPhoneType);
         }
     }
@@ -127,10 +134,9 @@ public class Menu {
         PhoneContact editablePhoneContact;
         phoneBook.sort(PhoneBook.SortVariants.BY_LAST_NAME);
         System.out.println(phoneBook.toString());
-        Scanner sc = new Scanner(System.in);
         System.out.print("\n\n ***EDIT CONTACT MENU***\n\n");
         System.out.print("Enter number of contact: ");
-        Integer numberOfContact = sc.nextInt() - 1;
+        Integer numberOfContact = CONSOLE_SCANNER.nextInt() - 1;
 
         if (numberOfContact < 0 || numberOfContact > phoneBook.size()){
             System.out.println("Unexpected contact number!");
@@ -141,25 +147,25 @@ public class Menu {
 
         System.out.println("CURRENT FIRST NAME: " + editablePhoneContact.getFirstName());
         System.out.print("ENTER NEW FIRST NAME: ");
-        editablePhoneContact.setFirstName(sc.next());
+        editablePhoneContact.setFirstName(CONSOLE_SCANNER.nextLine());
 
         System.out.println("CURRENT LAST NAME: " + editablePhoneContact.getLastName());
         System.out.print("ENTER NEW LAST NAME: ");
-        editablePhoneContact.setLastName(sc.next());
+        editablePhoneContact.setLastName(CONSOLE_SCANNER.nextLine());
 
         editPhoneAndPhoneTypesSubMenu(editablePhoneContact);
 
         System.out.println("CURRENT EMAIL: " + editablePhoneContact.getEmail());
         System.out.print("ENTER NEW EMAIL: ");
-        editablePhoneContact.setEmail(sc.next());
+        editablePhoneContact.setEmail(CONSOLE_SCANNER.nextLine());
 
         System.out.println("CURRENT BIRTH DAY: " + editablePhoneContact.getBirthDate());
         System.out.print("ENTER NEW BIRTH DAY: ");
-        editablePhoneContact.setBirthDate(sc.next());
+        editablePhoneContact.setBirthDate(CONSOLE_SCANNER.nextLine());
 
         System.out.println("CURRENT ADDRESS: " + editablePhoneContact.getAddress());
         System.out.print("ENTER NEW ADDRESS: ");
-        editablePhoneContact.setAddress(sc.next());
+        editablePhoneContact.setAddress(CONSOLE_SCANNER.nextLine());
 
         phoneBook.serializeToFile();
 
@@ -189,25 +195,23 @@ public class Menu {
 
     private void editPhoneAndPhoneTypesSubMenu(PhoneContact phoneContact) {
         ArrayList<PhoneNumberAndType> phoneNumberAndTypeList = phoneContact.getPhoneNumberAndTypeList();
-        Scanner sc = new Scanner(System.in);
         for (int i = 0; i < phoneNumberAndTypeList.size(); i++){
             System.out.println("CURRENT PHONE NUMBER [" + (1+i) + " of " + (1+i) +" ]: " + phoneNumberAndTypeList.get(i).getPhoneNumber());
             System.out.println("CURRENT PHONE TYPE [" + (1+i) + " of " + (1+i) +" ]: " + phoneNumberAndTypeList.get(i).getPhoneType());
             System.out.print("ENTER NEW PHONE NUMBER [" + (1+i) + " of " + (1+i) +" ]: ");
-            phoneNumberAndTypeList.get(i).setPhoneNumber(sc.next());
+            phoneNumberAndTypeList.get(i).setPhoneNumber(CONSOLE_SCANNER.nextLine());
             System.out.print("ENTER NEW PHONE TYPE [" + (1+i) + " of " + (1+i) +" ]: ");
-            phoneNumberAndTypeList.get(i).setPhoneType(sc.next());
+            phoneNumberAndTypeList.get(i).setPhoneType(CONSOLE_SCANNER.nextLine());
         }
     }
 
     private void getAllContactsMenu(){
-        Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("\n\n***Get all contacts menu***\n\n" +
                     "[1] Get all contacts sorted by LAST NAME\n" +
                     "[2] Get all contacts sorted by FIRST NAME\n" +
                     "[0] Exit");
-            Integer point = sc.nextInt();
+            Integer point = CONSOLE_SCANNER.nextInt();
             switch (point) {
                 case 0:
                     return;
@@ -231,7 +235,7 @@ public class Menu {
     private void searchByFirstOrLasNameMenu(){
         System.out.println("\n\n*** SEARCH BY FIRST OR LAST NAME MENU ***\n\n");
         System.out.print("Enter full FIRST/LAST name: ");
-        List<Integer> searchResults = phoneBook.searchByFirstOrLastName(sc.next());
+        List<Integer> searchResults = phoneBook.searchByFirstOrLastName(CONSOLE_SCANNER.nextLine());
         if(searchResults.size() == 0) {
             System.out.println("No matches found!");
         } else {
@@ -242,7 +246,7 @@ public class Menu {
     private void searchByAnyPartOfNameMenu(){
         System.out.println("\n\n*** SEARCH BY ANY PART OF NAME MENU ***\n\n");
         System.out.print("Enter any part of FIRST name: ");
-        List<Integer> searchResults = phoneBook.searchByAnyPartOfName(sc.next());
+        List<Integer> searchResults = phoneBook.searchByAnyPartOfName(CONSOLE_SCANNER.nextLine());
         if(searchResults.size() == 0) {
             System.out.println("No matches found!");
         } else {
@@ -253,7 +257,7 @@ public class Menu {
     private void searchByPhoneNumberMenu(){
         System.out.println("\n\n*** SEARCH BY PHONE NUMBER MENU ***\n\n");
         System.out.print("Enter phone number: ");
-        List<Integer> searchResults = phoneBook.searchByPhoneNumber(sc.next());
+        List<Integer> searchResults = phoneBook.searchByPhoneNumber(CONSOLE_SCANNER.nextLine());
         if(searchResults.size() == 0) {
             System.out.println("No matches found!");
         } else {
@@ -265,7 +269,7 @@ public class Menu {
         Integer begin, end, expectedAge;
         System.out.println("\n\n*** SEARCH BY AGE MENU ***\n\n");
         System.out.print("Enter expected age or age range [f.e.: 15 - 20]: ");
-        String inputData = sc.nextLine();
+        String inputData = CONSOLE_SCANNER.nextLine();
         List<Integer> searchResults;
         if (inputData.contains(" - ")) {
             try {
@@ -293,15 +297,29 @@ public class Menu {
         }
     }
 
-    private void clscr (){
-//        String ANSI_CLEAR_SEQ = "\u001b[2J";
-//        System.out.println(ANSI_CLEAR_SEQ);
-//        try {
-//            Runtime.getRuntime().exec("cls");
-//        } catch (IOException e) {
-//            System.err.println("Error occurred during screen cleaning!");
-//            e.printStackTrace();
-//        }
+    public void autorizationMenu() {
+        System.out.println("Found created PhoneBook. Please, enter USER NAME/PASSWORD.");
+        String userName, pass;
+        while(true){
+            System.out.print("USER NAME:");
+            userName = CONSOLE_SCANNER.nextLine();
+            System.out.print("PASSWORD:");
+            pass = CONSOLE_SCANNER.nextLine();
+            if (phoneBook.getUserName().equals(userName) && phoneBook.getPassword().equals(pass)){
+                System.out.println("ACCESS GRANTED");
+                return;
+            } else {
+                System.out.println("INCORRECT USER NAME/PASSWORD!");
+            }
+        }
+    }
+
+    public void createonNewUserMenu(){
+        System.out.println("PLEASE, SET UP USER NAME AND PASSWORD");
+        System.out.print("ENTER USER NAME: ");
+        phoneBook.setUserName(CONSOLE_SCANNER.nextLine());
+        System.out.print("ENTER PASSWORD: ");
+        phoneBook.setPassword(CONSOLE_SCANNER.nextLine());
     }
 
 }

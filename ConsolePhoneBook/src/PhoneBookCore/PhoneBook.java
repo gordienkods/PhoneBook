@@ -17,14 +17,11 @@ public class PhoneBook implements Serializable {
     private File phoneBookFile;
     private Integer nameUniqueDigit = 1;
 
-    public PhoneBook() {
-        this.initialize();
-    }
 
-    public void create(){
-        this.phoneBook = new ArrayList<>();
-        System.out.println("PhoneBook collection successfully created.");
-    }
+//    public void create(){
+//        this.phoneBook = new ArrayList<>();
+//        System.out.println("PhoneBook collection successfully created.");
+//    }
 
     public void add(PhoneContact phoneContact){
         String tmpFirstName = "";
@@ -42,16 +39,10 @@ public class PhoneBook implements Serializable {
         this.nameUniqueDigit = 1;
     }
 
-    public void initialize () {
-        create();
-        try {
-            this.phoneBookFile = new File ("phoneBook.ser");
-        } catch (Exception e) {
-            System.out.println("ERROR: " + e.getMessage());
-            for (StackTraceElement element:e.getStackTrace()){
-                System.out.println(element.toString());
-            }
-        }
+    public boolean initialize () {
+        this.phoneBook = new ArrayList<>();
+        this.phoneBookFile = new File ("phoneBook.ser");
+
         if (!this.phoneBookFile.isDirectory() && this.phoneBookFile.exists()) {
             System.out.println("'phoneBook.ser' is present.");
             PhoneBook restoredPhoneBook = deserializeFromFile();
@@ -59,8 +50,10 @@ public class PhoneBook implements Serializable {
             this.userName = restoredPhoneBook.userName;
             this.password = restoredPhoneBook.password;
             System.out.println("DE SERIALIZES PhoneBook is:\n" + restoredPhoneBook.toString());
+            return true;
         } else {
             System.out.println("'phoneBook.ser' is NOT present.");
+            return false;
         }
     }
 
@@ -260,6 +253,22 @@ public class PhoneBook implements Serializable {
             }
         }
         return searchResults;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override
