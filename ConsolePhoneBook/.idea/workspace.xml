@@ -26,8 +26,10 @@
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-              <folding />
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,10 +38,12 @@
         <entry file="file://$PROJECT_DIR$/src/PhoneBookMenu/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
+                <element signature="method#start#0;class#Menu#0" expanded="false" />
                 <element signature="method#createNewContactMenu#0;class#Menu#0" expanded="false" />
-                <element signature="e#3451#3535#0" expanded="false" />
+                <element signature="e#4345#4429#0" expanded="false" />
+                <element signature="method#addPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
                 <element signature="method#editContactMenu#0;class#Menu#0" expanded="false" />
                 <element signature="method#deleteContactMenu#0;class#Menu#0" expanded="false" />
                 <element signature="method#editPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
@@ -59,9 +63,8 @@
         <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/PhoneBook.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
               <folding>
-                <element signature="method#add#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#deserializeFromFile#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#sort#0;class#PhoneBook#0" expanded="false" />
                 <element signature="class#2541:2773" expanded="false" />
@@ -73,7 +76,6 @@
                 <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
-                <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -92,29 +94,14 @@
       <file leaf-file-name="Validator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/validator/Validator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.59246576">
-              <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetDataFromPhoneBookFileException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Exceptions/GetDataFromPhoneBookFileException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnexpectedValidationCase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Exceptions/UnexpectedValidationCase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-              <folding />
+            <state vertical-scroll-proportion="2.7174656">
+              <caret line="130" column="30" selection-start-line="130" selection-start-column="30" selection-end-line="130" selection-end-column="30" />
+              <folding>
+                <element signature="method#clearErrors#0;class#Validator#0" expanded="false" />
+                <element signature="method#lengthValidator#0;class#Validator#0" expanded="false" />
+                <element signature="method#invalidCharsValidator#0;class#Validator#0" expanded="false" />
+                <element signature="method#checkValidationResults#0;class#Validator#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -123,31 +110,11 @@
         <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/PhoneContact.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
+              <caret line="147" column="24" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#715#716#0" expanded="false" />
-                <element signature="e#757#758#0" expanded="false" />
-                <element signature="e#805#806#0" expanded="false" />
-                <element signature="e#845#846#0" expanded="false" />
                 <element signature="method#setPhoneNumberAndType#0;class#PhoneContact#0" expanded="false" />
                 <element signature="method#isPhoneNumberPresents#0;class#PhoneContact#0" expanded="false" />
                 <element signature="method#setPhoneNumber#0;class#PhoneContact#0" expanded="false" />
-                <element signature="e#1726#1727#0" expanded="false" />
-                <element signature="e#1760#1761#0" expanded="false" />
-                <element signature="e#2125#2126#0" expanded="false" />
-                <element signature="e#2163#2164#0" expanded="false" />
-                <element signature="e#2199#2200#0" expanded="false" />
-                <element signature="e#2231#2232#0" expanded="false" />
-                <element signature="e#2266#2267#0" expanded="false" />
-                <element signature="e#2297#2298#0" expanded="false" />
-                <element signature="e#2329#2330#0" expanded="false" />
-                <element signature="e#2357#2358#0" expanded="false" />
-                <element signature="e#2462#2463#0" expanded="false" />
-                <element signature="e#2492#2493#0" expanded="false" />
-                <element signature="e#2564#2565#0" expanded="false" />
-                <element signature="e#2609#2610#0" expanded="false" />
-                <element signature="method#equals#0;class#PhoneContact#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -174,13 +141,13 @@
         <option value="$PROJECT_DIR$/src/PhoneBookCore/PhoneContactValidator.java" />
         <option value="$PROJECT_DIR$/src/PhoneBookCore/PhoneNumberAndType.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/PhoneBookCore/PhoneContact.java" />
         <option value="$PROJECT_DIR$/src/PhoneBookCore/PhoneBook.java" />
         <option value="$PROJECT_DIR$/src/PhoneBookCore/validator/rule.java" />
         <option value="$PROJECT_DIR$/src/PhoneBookCore/validator/Validate.java" />
         <option value="$PROJECT_DIR$/src/Exceptions/unexpectedValidationCase.java" />
-        <option value="$PROJECT_DIR$/src/PhoneBookMenu/Menu.java" />
         <option value="$PROJECT_DIR$/src/PhoneBookCore/validator/Validator.java" />
+        <option value="$PROJECT_DIR$/src/PhoneBookCore/PhoneContact.java" />
+        <option value="$PROJECT_DIR$/src/PhoneBookMenu/Menu.java" />
       </list>
     </option>
   </component>
@@ -646,15 +613,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7908497" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.872549" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19818456" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7369281" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52124184" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -685,7 +652,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="15" />
+      <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -698,7 +665,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -707,8 +676,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="323" column="0" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
           <folding>
+            <element signature="method#start#0;class#Menu#0" expanded="false" />
             <element signature="method#createNewContactMenu#0;class#Menu#0" expanded="false" />
-            <element signature="e#3451#3535#0" expanded="false" />
+            <element signature="e#4345#4429#0" expanded="false" />
+            <element signature="method#addPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#deleteContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
@@ -728,7 +699,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="method#add#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#deserializeFromFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#sort#0;class#PhoneBook#0" expanded="false" />
             <element signature="class#2541:2773" expanded="false" />
@@ -740,7 +710,6 @@
             <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -767,7 +736,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#clearErrors#0;class#Validator#0" expanded="false" />
+            <element signature="method#lengthValidator#0;class#Validator#0" expanded="false" />
+            <element signature="method#invalidCharsValidator#0;class#Validator#0" expanded="false" />
+            <element signature="method#checkValidationResults#0;class#Validator#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -776,29 +750,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#715#716#0" expanded="false" />
-            <element signature="e#757#758#0" expanded="false" />
-            <element signature="e#805#806#0" expanded="false" />
-            <element signature="e#845#846#0" expanded="false" />
             <element signature="method#setPhoneNumberAndType#0;class#PhoneContact#0" expanded="false" />
             <element signature="method#isPhoneNumberPresents#0;class#PhoneContact#0" expanded="false" />
             <element signature="method#setPhoneNumber#0;class#PhoneContact#0" expanded="false" />
-            <element signature="e#1726#1727#0" expanded="false" />
-            <element signature="e#1760#1761#0" expanded="false" />
-            <element signature="e#2125#2126#0" expanded="false" />
-            <element signature="e#2163#2164#0" expanded="false" />
-            <element signature="e#2199#2200#0" expanded="false" />
-            <element signature="e#2231#2232#0" expanded="false" />
-            <element signature="e#2266#2267#0" expanded="false" />
-            <element signature="e#2297#2298#0" expanded="false" />
-            <element signature="e#2329#2330#0" expanded="false" />
-            <element signature="e#2357#2358#0" expanded="false" />
-            <element signature="e#2462#2463#0" expanded="false" />
-            <element signature="e#2492#2493#0" expanded="false" />
-            <element signature="e#2564#2565#0" expanded="false" />
-            <element signature="e#2609#2610#0" expanded="false" />
-            <element signature="method#equals#0;class#PhoneContact#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -807,7 +761,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -816,8 +772,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="323" column="0" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
           <folding>
+            <element signature="method#start#0;class#Menu#0" expanded="false" />
             <element signature="method#createNewContactMenu#0;class#Menu#0" expanded="false" />
-            <element signature="e#3451#3535#0" expanded="false" />
+            <element signature="e#4345#4429#0" expanded="false" />
+            <element signature="method#addPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#deleteContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
@@ -837,7 +795,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="method#add#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#deserializeFromFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#sort#0;class#PhoneBook#0" expanded="false" />
             <element signature="class#2541:2773" expanded="false" />
@@ -849,7 +806,6 @@
             <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -876,7 +832,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#clearErrors#0;class#Validator#0" expanded="false" />
+            <element signature="method#lengthValidator#0;class#Validator#0" expanded="false" />
+            <element signature="method#invalidCharsValidator#0;class#Validator#0" expanded="false" />
+            <element signature="method#checkValidationResults#0;class#Validator#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -885,29 +846,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#715#716#0" expanded="false" />
-            <element signature="e#757#758#0" expanded="false" />
-            <element signature="e#805#806#0" expanded="false" />
-            <element signature="e#845#846#0" expanded="false" />
             <element signature="method#setPhoneNumberAndType#0;class#PhoneContact#0" expanded="false" />
             <element signature="method#isPhoneNumberPresents#0;class#PhoneContact#0" expanded="false" />
             <element signature="method#setPhoneNumber#0;class#PhoneContact#0" expanded="false" />
-            <element signature="e#1726#1727#0" expanded="false" />
-            <element signature="e#1760#1761#0" expanded="false" />
-            <element signature="e#2125#2126#0" expanded="false" />
-            <element signature="e#2163#2164#0" expanded="false" />
-            <element signature="e#2199#2200#0" expanded="false" />
-            <element signature="e#2231#2232#0" expanded="false" />
-            <element signature="e#2266#2267#0" expanded="false" />
-            <element signature="e#2297#2298#0" expanded="false" />
-            <element signature="e#2329#2330#0" expanded="false" />
-            <element signature="e#2357#2358#0" expanded="false" />
-            <element signature="e#2462#2463#0" expanded="false" />
-            <element signature="e#2492#2493#0" expanded="false" />
-            <element signature="e#2564#2565#0" expanded="false" />
-            <element signature="e#2609#2610#0" expanded="false" />
-            <element signature="method#equals#0;class#PhoneContact#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -916,7 +857,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -925,8 +868,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
           <folding>
+            <element signature="method#start#0;class#Menu#0" expanded="false" />
             <element signature="method#createNewContactMenu#0;class#Menu#0" expanded="false" />
-            <element signature="e#3451#3535#0" expanded="false" />
+            <element signature="e#4345#4429#0" expanded="false" />
+            <element signature="method#addPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#deleteContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
@@ -946,7 +891,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="223" column="26" selection-start-line="223" selection-start-column="26" selection-end-line="223" selection-end-column="26" />
           <folding>
-            <element signature="method#add#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#deserializeFromFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#sort#0;class#PhoneBook#0" expanded="false" />
             <element signature="class#2541:2773" expanded="false" />
@@ -958,7 +902,6 @@
             <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -978,29 +921,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#715#716#0" expanded="false" />
-            <element signature="e#757#758#0" expanded="false" />
-            <element signature="e#805#806#0" expanded="false" />
-            <element signature="e#845#846#0" expanded="false" />
             <element signature="method#setPhoneNumberAndType#0;class#PhoneContact#0" expanded="false" />
             <element signature="method#isPhoneNumberPresents#0;class#PhoneContact#0" expanded="false" />
             <element signature="method#setPhoneNumber#0;class#PhoneContact#0" expanded="false" />
-            <element signature="e#1726#1727#0" expanded="false" />
-            <element signature="e#1760#1761#0" expanded="false" />
-            <element signature="e#2125#2126#0" expanded="false" />
-            <element signature="e#2163#2164#0" expanded="false" />
-            <element signature="e#2199#2200#0" expanded="false" />
-            <element signature="e#2231#2232#0" expanded="false" />
-            <element signature="e#2266#2267#0" expanded="false" />
-            <element signature="e#2297#2298#0" expanded="false" />
-            <element signature="e#2329#2330#0" expanded="false" />
-            <element signature="e#2357#2358#0" expanded="false" />
-            <element signature="e#2462#2463#0" expanded="false" />
-            <element signature="e#2492#2493#0" expanded="false" />
-            <element signature="e#2564#2565#0" expanded="false" />
-            <element signature="e#2609#2610#0" expanded="false" />
-            <element signature="method#equals#0;class#PhoneContact#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1009,7 +932,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1018,8 +943,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="164" column="36" selection-start-line="164" selection-start-column="36" selection-end-line="164" selection-end-column="36" />
           <folding>
+            <element signature="method#start#0;class#Menu#0" expanded="false" />
             <element signature="method#createNewContactMenu#0;class#Menu#0" expanded="false" />
-            <element signature="e#3451#3535#0" expanded="false" />
+            <element signature="e#4345#4429#0" expanded="false" />
+            <element signature="method#addPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#deleteContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
@@ -1039,7 +966,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="113" column="10" selection-start-line="113" selection-start-column="10" selection-end-line="113" selection-end-column="10" />
           <folding>
-            <element signature="method#add#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#deserializeFromFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#sort#0;class#PhoneBook#0" expanded="false" />
             <element signature="class#2541:2773" expanded="false" />
@@ -1051,7 +977,6 @@
             <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -1070,7 +995,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1079,8 +1006,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#start#0;class#Menu#0" expanded="false" />
             <element signature="method#createNewContactMenu#0;class#Menu#0" expanded="false" />
-            <element signature="e#3451#3535#0" expanded="false" />
+            <element signature="e#4345#4429#0" expanded="false" />
+            <element signature="method#addPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#deleteContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
@@ -1130,13 +1059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_72/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2866" column="18" selection-start-line="2866" selection-start-column="18" selection-end-line="2866" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_72/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1144,66 +1066,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/PhoneContact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="97" selection-start-line="16" selection-start-column="97" selection-end-line="16" selection-end-column="97" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#715#716#0" expanded="false" />
-            <element signature="e#757#758#0" expanded="false" />
-            <element signature="e#805#806#0" expanded="false" />
-            <element signature="e#845#846#0" expanded="false" />
-            <element signature="method#setPhoneNumberAndType#0;class#PhoneContact#0" expanded="false" />
-            <element signature="method#isPhoneNumberPresents#0;class#PhoneContact#0" expanded="false" />
-            <element signature="method#setPhoneNumber#0;class#PhoneContact#0" expanded="false" />
-            <element signature="e#1726#1727#0" expanded="false" />
-            <element signature="e#1760#1761#0" expanded="false" />
-            <element signature="e#2125#2126#0" expanded="false" />
-            <element signature="e#2163#2164#0" expanded="false" />
-            <element signature="e#2199#2200#0" expanded="false" />
-            <element signature="e#2231#2232#0" expanded="false" />
-            <element signature="e#2266#2267#0" expanded="false" />
-            <element signature="e#2297#2298#0" expanded="false" />
-            <element signature="e#2329#2330#0" expanded="false" />
-            <element signature="e#2357#2358#0" expanded="false" />
-            <element signature="e#2462#2463#0" expanded="false" />
-            <element signature="e#2492#2493#0" expanded="false" />
-            <element signature="e#2564#2565#0" expanded="false" />
-            <element signature="e#2609#2610#0" expanded="false" />
-            <element signature="method#equals#0;class#PhoneContact#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_72/src.zip!/java/util/Scanner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7688356">
           <caret line="1356" column="18" selection-start-line="1356" selection-start-column="18" selection-end-line="1356" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Exceptions/GetDataFromPhoneBookFileException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Exceptions/UnexpectedValidationCase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1215,12 +1081,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/UnexpectedValidationCase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18037136">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Exceptions/GetDataFromPhoneBookFileException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31564987">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/PhoneContact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="147" column="24" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
+          <folding>
+            <element signature="method#setPhoneNumberAndType#0;class#PhoneContact#0" expanded="false" />
+            <element signature="method#isPhoneNumberPresents#0;class#PhoneContact#0" expanded="false" />
+            <element signature="method#setPhoneNumber#0;class#PhoneContact#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/PhoneBook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
           <folding>
-            <element signature="method#add#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#deserializeFromFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#sort#0;class#PhoneBook#0" expanded="false" />
             <element signature="class#2541:2773" expanded="false" />
@@ -1232,7 +1135,6 @@
             <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -1250,10 +1152,12 @@
     <entry file="file://$PROJECT_DIR$/src/PhoneBookMenu/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
+            <element signature="method#start#0;class#Menu#0" expanded="false" />
             <element signature="method#createNewContactMenu#0;class#Menu#0" expanded="false" />
-            <element signature="e#3451#3535#0" expanded="false" />
+            <element signature="e#4345#4429#0" expanded="false" />
+            <element signature="method#addPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#deleteContactMenu#0;class#Menu#0" expanded="false" />
             <element signature="method#editPhoneAndPhoneTypesSubMenu#0;class#Menu#0" expanded="false" />
@@ -1268,11 +1172,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_72/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5068493">
+          <caret line="1696" column="15" selection-start-line="1696" selection-start-column="15" selection-end-line="1696" selection-end-column="15" />
+          <folding>
+            <element signature="e#66457#66458#0" expanded="true" />
+            <element signature="e#66495#66496#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/validator/Validator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59246576">
-          <caret line="53" column="57" selection-start-line="53" selection-start-column="57" selection-end-line="53" selection-end-column="57" />
-          <folding />
+        <state vertical-scroll-proportion="2.7174656">
+          <caret line="130" column="30" selection-start-line="130" selection-start-column="30" selection-end-line="130" selection-end-column="30" />
+          <folding>
+            <element signature="method#clearErrors#0;class#Validator#0" expanded="false" />
+            <element signature="method#lengthValidator#0;class#Validator#0" expanded="false" />
+            <element signature="method#invalidCharsValidator#0;class#Validator#0" expanded="false" />
+            <element signature="method#checkValidationResults#0;class#Validator#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

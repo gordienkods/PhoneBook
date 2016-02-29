@@ -5,9 +5,6 @@ import PhoneBookCore.PhoneContact;
 import PhoneBookCore.PhoneNumberAndType;
 import PhoneBookCore.validator.Rule;
 import PhoneBookCore.validator.Validator;
-import com.sun.org.apache.xpath.internal.SourceTree;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -79,24 +76,55 @@ public class Menu {
 
     private void createNewContactMenu() {
         PhoneContact phoneContact = new PhoneContact();
+        Validator validator = new Validator();
+        String tmp;
+
         Integer phoneNumberCounter = 0;
-        System.out.print("\n\n ***CREATION OF NEW CONTACT***\n\n");
+        System.out.print("\n\n *** CREATION OF NEW CONTACT ***\n\n");
 
         System.out.print("How many phones do yuo want to add? ");
         phoneNumberCounter = CONSOLE_SCANNER.nextInt();
 
         CONSOLE_SCANNER.nextLine();
 
-        System.out.print("FIRST NAME: ");
-        phoneContact.setFirstName(CONSOLE_SCANNER.nextLine());
+        do {
+            System.out.print("FIRST NAME: ");
+            tmp = CONSOLE_SCANNER.nextLine();
+            if (validator.validateThisData(tmp, Rule.FIRST_NAME) ) {
+                phoneContact.setFirstName(tmp);
+                validator.clearErrors();
+                break;
+            } else {
+                System.out.println(validator.getErrors());
+                validator.clearErrors();
+            }
+        } while (true);
 
-        System.out.print("LAST NAME: ");
-        phoneContact.setLastName(CONSOLE_SCANNER.nextLine());
+
+        do {
+            System.out.print("LAST NAME: ");
+            tmp = CONSOLE_SCANNER.nextLine();
+            if (validator.validateThisData(tmp, Rule.LAST_NAME) ) {
+                phoneContact.setLastName(tmp);
+                validator.clearErrors();
+                break;
+            } else {
+                System.out.println(validator.getErrors());
+                validator.clearErrors();
+            }
+        } while (true);
 
         addPhoneAndPhoneTypesSubMenu(phoneContact,phoneNumberCounter);
 
+
         System.out.print("EMAIL: ");
-        phoneContact.setEmail(CONSOLE_SCANNER.nextLine());
+        tmp = CONSOLE_SCANNER.nextLine();
+        if (validator.validateThisData(tmp, Rule.EMAIL) ) {
+            phoneContact.setEmail(tmp);
+        } else {
+            System.out.println(validator.getErrors());
+        }
+        validator.clearErrors();
 
         System.out.print("BIRTH DATE[dd.MM.yyyy]: ");
         phoneContact.setBirthDate(CONSOLE_SCANNER.nextLine());
@@ -118,17 +146,17 @@ public class Menu {
     }
 
     private void addPhoneAndPhoneTypesSubMenu(PhoneContact phoneContact, Integer counter) {
-        String errors;
-        String tmpPhoneNumber = "", tmpPhoneType = "";
+        Validator validator = new Validator();
+        String tmpPhoneNumber, tmpPhoneType;
         if (counter <= 0){
             return;
         }
         for (int i = 0; i < counter; i++){
             System.out.print("PHONE NUMBER [" + (1+i) + " of " + counter +" ]: ");
             tmpPhoneNumber = CONSOLE_SCANNER.nextLine();
-            errors = Validator.validateThisData(tmpPhoneNumber, Rule.PHONE_NUMBER);
-            if (errors.length() > 0) {
-                System.out.println(errors);
+            if(!validator.validateThisData(tmpPhoneNumber, Rule.PHONE_NUMBER)){
+                System.out.println(validator.getErrors());
+                validator.clearErrors();
                 return;
             }
             System.out.print("PHONE TYPE [" + (1+i) + " of " + counter +" ]: ");

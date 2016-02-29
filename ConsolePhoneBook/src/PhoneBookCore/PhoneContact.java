@@ -140,6 +140,14 @@ public class PhoneContact implements Serializable, Comparable {
         if (!this.lastName.equals(other.lastName)) {
             return false;
         }
+        if ( (this.birthDate == null && other.birthDate != null) || (this.birthDate != null && other.birthDate == null)) {
+            return false;
+        }
+
+        if ((this.birthDate == null && other.birthDate == null)){
+            return true;
+        }
+
         if (!this.birthDate.equals(other.birthDate)) {
             return false;
         }
