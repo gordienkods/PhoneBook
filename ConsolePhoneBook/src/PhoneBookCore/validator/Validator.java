@@ -12,7 +12,7 @@ public class Validator {
     private final static Integer LAST_NAME_MAX_LENGTH = 15;
     private final static Integer EMAIL_MAX_LENGTH = 15;
     private final static char [] VALID_CHARS_IN_PHONE_NUMBER = new char [] {'0','1','2','3','4','5','6','7','8','9','-'};
-    private final static String [] MANDATORY_CHARS_IN_EMAIL = new String [] {"@","."};
+    private final static char [] MANDATORY_CHARS_IN_EMAIL = new char [] {'@','.'};
     private final static char [] EMAIL_INVALID_CHARS = new char [] {'%','#','/','+','&','?','*','\\'};
     private final static char [] INVALID_CHARS = new char [] {'%','#','@','/','+','&','?','*','\\'};
 
@@ -118,11 +118,11 @@ public class Validator {
         return result;
     }
 
-    private Boolean mandatoryCharsValidator (String inputString, String [] mandatoryChars, String msg) {
+    private Boolean mandatoryCharsValidator (String inputString, char [] mandatoryChars, String msg) {
         StringBuilder sb = new StringBuilder("[ ");
-        for (String charInString : mandatoryChars){
-            if (!inputString.contains(charInString)) {
-                sb.append(charInString);
+        for (char  mandatoryChar : mandatoryChars){
+            if (inputString.indexOf( mandatoryChar) < 0) {
+                sb.append(mandatoryChar);
             }
         }
 

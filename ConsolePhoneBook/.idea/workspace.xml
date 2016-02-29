@@ -22,18 +22,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PhoneBookMenu/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -59,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhoneBook.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PhoneBook.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/PhoneBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.15753424">
+              <caret line="143" column="69" selection-start-line="143" selection-start-column="69" selection-end-line="143" selection-end-column="69" />
               <folding>
                 <element signature="method#deserializeFromFile#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#sort#0;class#PhoneBook#0" expanded="false" />
@@ -76,6 +64,7 @@
                 <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
+                <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
                 <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -91,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Validator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Validator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/validator/Validator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.7174656">
-              <caret line="130" column="30" selection-start-line="130" selection-start-column="30" selection-end-line="130" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
               <folding>
                 <element signature="method#clearErrors#0;class#Validator#0" expanded="false" />
                 <element signature="method#lengthValidator#0;class#Validator#0" expanded="false" />
@@ -145,9 +134,9 @@
         <option value="$PROJECT_DIR$/src/PhoneBookCore/validator/rule.java" />
         <option value="$PROJECT_DIR$/src/PhoneBookCore/validator/Validate.java" />
         <option value="$PROJECT_DIR$/src/Exceptions/unexpectedValidationCase.java" />
-        <option value="$PROJECT_DIR$/src/PhoneBookCore/validator/Validator.java" />
         <option value="$PROJECT_DIR$/src/PhoneBookCore/PhoneContact.java" />
         <option value="$PROJECT_DIR$/src/PhoneBookMenu/Menu.java" />
+        <option value="$PROJECT_DIR$/src/PhoneBookCore/validator/Validator.java" />
       </list>
     </option>
   </component>
@@ -710,6 +699,7 @@
             <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -806,6 +796,7 @@
             <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -902,6 +893,7 @@
             <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -977,6 +969,7 @@
             <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
             <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
@@ -1119,32 +1112,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/PhoneBook.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_72/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5068493">
+          <caret line="1696" column="15" selection-start-line="1696" selection-start-column="15" selection-end-line="1696" selection-end-column="15" />
+          <folding>
+            <element signature="e#66457#66458#0" expanded="true" />
+            <element signature="e#66495#66496#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/validator/Validator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+          <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
           <folding>
-            <element signature="method#deserializeFromFile#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#sort#0;class#PhoneBook#0" expanded="false" />
-            <element signature="class#2541:2773" expanded="false" />
-            <element signature="method#compare#0;class#2541:2773" expanded="false" />
-            <element signature="class#2840:3070" expanded="false" />
-            <element signature="method#compare#0;class#2840:3070" expanded="false" />
-            <element signature="class#3128:3358" expanded="false" />
-            <element signature="method#compare#0;class#3128:3358" expanded="false" />
-            <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#searchByAnyPartOfName#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#searchByPhoneNumber#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#searchByAge#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#searchByAgeRange#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#toString#0;class#PhoneBook#0" expanded="false" />
-            <element signature="method#toString#1;class#PhoneBook#0" expanded="false" />
-            <element signature="class#SortVariants#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#clearErrors#0;class#Validator#0" expanded="false" />
+            <element signature="method#lengthValidator#0;class#Validator#0" expanded="false" />
+            <element signature="method#invalidCharsValidator#0;class#Validator#0" expanded="false" />
+            <element signature="method#checkValidationResults#0;class#Validator#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1172,26 +1159,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_72/src.zip!/java/lang/String.java">
+    <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/PhoneBook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5068493">
-          <caret line="1696" column="15" selection-start-line="1696" selection-start-column="15" selection-end-line="1696" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.15753424">
+          <caret line="143" column="69" selection-start-line="143" selection-start-column="69" selection-end-line="143" selection-end-column="69" />
           <folding>
-            <element signature="e#66457#66458#0" expanded="true" />
-            <element signature="e#66495#66496#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PhoneBookCore/validator/Validator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.7174656">
-          <caret line="130" column="30" selection-start-line="130" selection-start-column="30" selection-end-line="130" selection-end-column="30" />
-          <folding>
-            <element signature="method#clearErrors#0;class#Validator#0" expanded="false" />
-            <element signature="method#lengthValidator#0;class#Validator#0" expanded="false" />
-            <element signature="method#invalidCharsValidator#0;class#Validator#0" expanded="false" />
-            <element signature="method#checkValidationResults#0;class#Validator#0" expanded="false" />
+            <element signature="method#deserializeFromFile#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#sort#0;class#PhoneBook#0" expanded="false" />
+            <element signature="class#2541:2773" expanded="false" />
+            <element signature="method#compare#0;class#2541:2773" expanded="false" />
+            <element signature="class#2840:3070" expanded="false" />
+            <element signature="method#compare#0;class#2840:3070" expanded="false" />
+            <element signature="class#3128:3358" expanded="false" />
+            <element signature="method#compare#0;class#3128:3358" expanded="false" />
+            <element signature="method#delete#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#serializeToFile#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#getDataFromPhoneBookFile#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#isPhoneContactPresents#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#serchByFirstName#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#serchByLastName#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#searchByFirstOrLastName#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#searchByAnyPartOfName#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#searchByPhoneNumber#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#searchByAge#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#searchByAgeRange#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#toString#0;class#PhoneBook#0" expanded="false" />
+            <element signature="method#toString#1;class#PhoneBook#0" expanded="false" />
+            <element signature="class#SortVariants#0;class#PhoneBook#0" expanded="false" />
           </folding>
         </state>
       </provider>
