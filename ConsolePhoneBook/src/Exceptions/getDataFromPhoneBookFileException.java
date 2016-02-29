@@ -1,8 +1,8 @@
 package Exceptions;
 
-public class getDataFromPhoneBookFileException extends RuntimeException {
+public class GetDataFromPhoneBookFileException extends RuntimeException {
 
-    public getDataFromPhoneBookFileException() {
+    public GetDataFromPhoneBookFileException() {
         super("Can't get data from 'phoneBook.txt'");
     }
 

@@ -17,12 +17,6 @@ public class PhoneBook implements Serializable {
     private File phoneBookFile;
     private Integer nameUniqueDigit = 1;
 
-
-//    public void create(){
-//        this.phoneBook = new ArrayList<>();
-//        System.out.println("PhoneBook collection successfully created.");
-//    }
-
     public void add(PhoneContact phoneContact){
         String tmpFirstName = "";
         tmpFirstName = phoneContact.getFirstName();
@@ -49,10 +43,8 @@ public class PhoneBook implements Serializable {
             this.phoneBook = restoredPhoneBook.phoneBook;
             this.userName = restoredPhoneBook.userName;
             this.password = restoredPhoneBook.password;
-            System.out.println("DE SERIALIZES PhoneBook is:\n" + restoredPhoneBook.toString());
             return true;
         } else {
-            System.out.println("'phoneBook.ser' is NOT present.");
             return false;
         }
     }

@@ -3,6 +3,8 @@ package PhoneBookMenu;
 import PhoneBookCore.PhoneBook;
 import PhoneBookCore.PhoneContact;
 import PhoneBookCore.PhoneNumberAndType;
+import PhoneBookCore.validator.Rule;
+import PhoneBookCore.validator.Validator;
 import com.sun.org.apache.xpath.internal.SourceTree;
 
 
@@ -116,14 +118,19 @@ public class Menu {
     }
 
     private void addPhoneAndPhoneTypesSubMenu(PhoneContact phoneContact, Integer counter) {
+        String errors;
         String tmpPhoneNumber = "", tmpPhoneType = "";
-//        Scanner CONSOLE_SCANNER = new Scanner(System.in);
         if (counter <= 0){
             return;
         }
         for (int i = 0; i < counter; i++){
             System.out.print("PHONE NUMBER [" + (1+i) + " of " + counter +" ]: ");
             tmpPhoneNumber = CONSOLE_SCANNER.nextLine();
+            errors = Validator.validateThisData(tmpPhoneNumber, Rule.PHONE_NUMBER);
+            if (errors.length() > 0) {
+                System.out.println(errors);
+                return;
+            }
             System.out.print("PHONE TYPE [" + (1+i) + " of " + counter +" ]: ");
             tmpPhoneType = CONSOLE_SCANNER.nextLine();
             phoneContact.setPhoneNumberAndType(tmpPhoneNumber,tmpPhoneType);
