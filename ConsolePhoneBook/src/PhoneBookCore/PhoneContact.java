@@ -1,4 +1,4 @@
-package PhoneBookCore;
+package phoneBookCore;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -53,7 +53,7 @@ public class PhoneContact implements Serializable, Comparable {
         try {
             this.birthDate = LocalDate.parse(birthDate, dateFormatPattern);
         } catch (DateTimeParseException e) {
-            System.out.println("Incorrect date format. Value will set to 'none'");
+//            System.out.println("Incorrect date format. Value will set to 'none'");
             this.birthDate = null;
         }
     }

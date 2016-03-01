@@ -1,5 +1,5 @@
-import PhoneBookCore.PhoneBook;
-import PhoneBookMenu.Menu;
+import phoneBookCore.PhoneBook;
+import phoneBookMenu.Menu;
 
 public class Main {
 

@@ -1,7 +1,10 @@
-package PhoneBookCore.validator;
+package phoneBookCore.validator;
 
-import Exceptions.UnexpectedValidationCase;
+import exceptions.UnexpectedValidationCase;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +13,8 @@ public class Validator {
     private final static Integer PHONE_NUMBER_MAX_LENGTH = 15;
     private final static Integer FIRST_NAME_MAX_LENGTH = 15;
     private final static Integer LAST_NAME_MAX_LENGTH = 15;
-    private final static Integer EMAIL_MAX_LENGTH = 15;
+    private final static Integer EMAIL_MAX_LENGTH = 30;
+
     private final static char [] VALID_CHARS_IN_PHONE_NUMBER = new char [] {'0','1','2','3','4','5','6','7','8','9','-'};
     private final static char [] MANDATORY_CHARS_IN_EMAIL = new char [] {'@','.'};
     private final static char [] EMAIL_INVALID_CHARS = new char [] {'%','#','/','+','&','?','*','\\'};
@@ -58,6 +62,10 @@ public class Validator {
                 }
                 validationResults.add(mandatoryCharsValidator(inputData, MANDATORY_CHARS_IN_EMAIL, "EMAIL"));
                 validationResults.add(invalidCharsValidator(inputData,EMAIL_INVALID_CHARS, "EMAIL"));
+                return checkValidationResults(validationResults);
+            }
+            case BIRTH_DATE : {
+                validationResults.add(birthDateValidator(inputData,"dd.MM.yyyy"));
                 return checkValidationResults(validationResults);
             }
             default: throw new UnexpectedValidationCase();
@@ -140,6 +148,17 @@ public class Validator {
             if (!validationResult) {
                 return false;
             }
+        }
+        return true;
+    }
+
+    private Boolean birthDateValidator (String inputString, String datePattern){
+        DateTimeFormatter dateFormatPattern = DateTimeFormatter.ofPattern(datePattern);
+        try {
+            LocalDate.parse(inputString, dateFormatPattern);
+        } catch (DateTimeParseException e) {
+            errors.append("Incorrect date. Date format should be: dd.MM.yyyy");
+            return false;
         }
         return true;
     }

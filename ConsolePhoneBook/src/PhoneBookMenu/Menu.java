@@ -1,10 +1,10 @@
-package PhoneBookMenu;
+package phoneBookMenu;
 
-import PhoneBookCore.PhoneBook;
-import PhoneBookCore.PhoneContact;
-import PhoneBookCore.PhoneNumberAndType;
-import PhoneBookCore.validator.Rule;
-import PhoneBookCore.validator.Validator;
+import phoneBookCore.PhoneBook;
+import phoneBookCore.PhoneContact;
+import phoneBookCore.PhoneNumberAndType;
+import phoneBookCore.validator.Rule;
+import phoneBookCore.validator.Validator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,9 +22,9 @@ public class Menu {
         String command;
 
         if (phoneBook.initialize()) {
-            autorizationMenu();
+            authorizationMenu();
         } else {
-            createonNewUserMenu();
+            createNewUserMenu();
         }
 
         while (true){
@@ -82,13 +82,13 @@ public class Menu {
         Integer phoneNumberCounter = 0;
         System.out.print("\n\n *** CREATION OF NEW CONTACT ***\n\n");
 
-        System.out.print("How many phones do yuo want to add? ");
+        System.out.print("\nHow many phones do yuo want to add? ");
         phoneNumberCounter = CONSOLE_SCANNER.nextInt();
 
         CONSOLE_SCANNER.nextLine();
 
         do {
-            System.out.print("FIRST NAME: ");
+            System.out.print("\nFIRST NAME: ");
             tmp = CONSOLE_SCANNER.nextLine();
             if (validator.validateThisData(tmp, Rule.FIRST_NAME) ) {
                 phoneContact.setFirstName(tmp);
@@ -100,9 +100,8 @@ public class Menu {
             }
         } while (true);
 
-
         do {
-            System.out.print("LAST NAME: ");
+            System.out.print("\nLAST NAME: ");
             tmp = CONSOLE_SCANNER.nextLine();
             if (validator.validateThisData(tmp, Rule.LAST_NAME) ) {
                 phoneContact.setLastName(tmp);
@@ -116,8 +115,7 @@ public class Menu {
 
         addPhoneAndPhoneTypesSubMenu(phoneContact,phoneNumberCounter);
 
-
-        System.out.print("EMAIL: ");
+        System.out.print("\nEMAIL: ");
         tmp = CONSOLE_SCANNER.nextLine();
         if (validator.validateThisData(tmp, Rule.EMAIL) ) {
             phoneContact.setEmail(tmp);
@@ -126,23 +124,24 @@ public class Menu {
         }
         validator.clearErrors();
 
-        System.out.print("BIRTH DATE[dd.MM.yyyy]: ");
-        phoneContact.setBirthDate(CONSOLE_SCANNER.nextLine());
+
+        do {
+            System.out.print("\nBIRTH DATE [dd.MM.yyyy]: ");
+            tmp = CONSOLE_SCANNER.nextLine();
+            if (validator.validateThisData(tmp, Rule.BIRTH_DATE) ) {
+                phoneContact.setBirthDate(tmp);
+                validator.clearErrors();
+                break;
+            } else {
+                System.out.println(validator.getErrors());
+                validator.clearErrors();
+            }
+        } while (true);
 
         System.out.print("ADDRESS: ");
         phoneContact.setAddress(CONSOLE_SCANNER.nextLine());
 
         phoneBook.add(phoneContact);
-
-//        PhoneContactValidator validator = new PhoneContactValidator(phoneContact);
-//        validator.validate();
-//        if (validator.getValidateErrors().size() == 0){
-//            phoneBook.add(phoneContact);
-//            System.out.println("Phone contact successfully created ad added!");
-//        } else {
-//            validator.printErrors();
-//        }
-
     }
 
     private void addPhoneAndPhoneTypesSubMenu(PhoneContact phoneContact, Integer counter) {
@@ -152,14 +151,14 @@ public class Menu {
             return;
         }
         for (int i = 0; i < counter; i++){
-            System.out.print("PHONE NUMBER [" + (1+i) + " of " + counter +" ]: ");
+            System.out.print("\nPHONE NUMBER [" + (1+i) + " of " + counter +" ]: ");
             tmpPhoneNumber = CONSOLE_SCANNER.nextLine();
             if(!validator.validateThisData(tmpPhoneNumber, Rule.PHONE_NUMBER)){
                 System.out.println(validator.getErrors());
                 validator.clearErrors();
                 return;
             }
-            System.out.print("PHONE TYPE [" + (1+i) + " of " + counter +" ]: ");
+            System.out.print("\nPHONE TYPE [" + (1+i) + " of " + counter +" ]: ");
             tmpPhoneType = CONSOLE_SCANNER.nextLine();
             phoneContact.setPhoneNumberAndType(tmpPhoneNumber,tmpPhoneType);
         }
@@ -169,9 +168,11 @@ public class Menu {
         PhoneContact editablePhoneContact;
         phoneBook.sort(PhoneBook.SortVariants.BY_LAST_NAME);
         System.out.println(phoneBook.toString());
-        System.out.print("\n\n ***EDIT CONTACT MENU***\n\n");
+        System.out.print("\n\n*** EDIT CONTACT MENU ***\n\n");
         System.out.print("Enter number of contact: ");
         Integer numberOfContact = CONSOLE_SCANNER.nextInt() - 1;
+
+        CONSOLE_SCANNER.nextLine();
 
         if (numberOfContact < 0 || numberOfContact > phoneBook.size()){
             System.out.println("Unexpected contact number!");
@@ -180,26 +181,26 @@ public class Menu {
 
         editablePhoneContact = phoneBook.get(numberOfContact);
 
-        System.out.println("CURRENT FIRST NAME: " + editablePhoneContact.getFirstName());
-        System.out.print("ENTER NEW FIRST NAME: ");
+        System.out.println("\nCURRENT FIRST NAME: " + editablePhoneContact.getFirstName());
+        System.out.print("\nENTER NEW FIRST NAME: ");
         editablePhoneContact.setFirstName(CONSOLE_SCANNER.nextLine());
 
-        System.out.println("CURRENT LAST NAME: " + editablePhoneContact.getLastName());
-        System.out.print("ENTER NEW LAST NAME: ");
+        System.out.println("\nCURRENT LAST NAME: " + editablePhoneContact.getLastName());
+        System.out.print("\nENTER NEW LAST NAME: ");
         editablePhoneContact.setLastName(CONSOLE_SCANNER.nextLine());
 
         editPhoneAndPhoneTypesSubMenu(editablePhoneContact);
 
-        System.out.println("CURRENT EMAIL: " + editablePhoneContact.getEmail());
-        System.out.print("ENTER NEW EMAIL: ");
+        System.out.println("\nCURRENT EMAIL: " + editablePhoneContact.getEmail());
+        System.out.print("\nENTER NEW EMAIL: ");
         editablePhoneContact.setEmail(CONSOLE_SCANNER.nextLine());
 
-        System.out.println("CURRENT BIRTH DAY: " + editablePhoneContact.getBirthDate());
-        System.out.print("ENTER NEW BIRTH DAY: ");
+        System.out.println("\nCURRENT BIRTH DAY: " + editablePhoneContact.getBirthDate());
+        System.out.print("\nENTER NEW BIRTH DAY: ");
         editablePhoneContact.setBirthDate(CONSOLE_SCANNER.nextLine());
 
-        System.out.println("CURRENT ADDRESS: " + editablePhoneContact.getAddress());
-        System.out.print("ENTER NEW ADDRESS: ");
+        System.out.println("\nCURRENT ADDRESS: " + editablePhoneContact.getAddress());
+        System.out.print("\nENTER NEW ADDRESS: ");
         editablePhoneContact.setAddress(CONSOLE_SCANNER.nextLine());
 
         phoneBook.serializeToFile();
@@ -208,13 +209,12 @@ public class Menu {
     }
 
     public void deleteContactMenu(){
-        PhoneContact deletePhoneContact;
         phoneBook.sort(PhoneBook.SortVariants.BY_LAST_NAME);
         System.out.println(phoneBook.toString());
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("\n\n ***DELETE CONTACT MENU***\n\n");
-        System.out.print("Enter number of contact: ");
+        System.out.print("\n\n*** DELETE CONTACT MENU ***\n\n");
+        System.out.print("\nEnter number of contact: ");
         Integer numberOfContact = sc.nextInt() - 1;
 
         if (numberOfContact < 0 || numberOfContact > phoneBook.size()){
@@ -242,7 +242,7 @@ public class Menu {
 
     private void getAllContactsMenu(){
         while (true) {
-            System.out.println("\n\n***Get all contacts menu***\n\n" +
+            System.out.println("\n\n *** Get all contacts menu *** \n\n" +
                     "[1] Get all contacts sorted by LAST NAME\n" +
                     "[2] Get all contacts sorted by FIRST NAME\n" +
                     "[0] Exit");
@@ -332,13 +332,13 @@ public class Menu {
         }
     }
 
-    public void autorizationMenu() {
-        System.out.println("Found created PhoneBook. Please, enter USER NAME/PASSWORD.");
+    public void authorizationMenu() {
+        System.out.println("Please, enter USER NAME/PASSWORD.");
         String userName, pass;
         while(true){
-            System.out.print("USER NAME:");
+            System.out.print("\nUSER NAME:");
             userName = CONSOLE_SCANNER.nextLine();
-            System.out.print("PASSWORD:");
+            System.out.print("\nPASSWORD:");
             pass = CONSOLE_SCANNER.nextLine();
             if (phoneBook.getUserName().equals(userName) && phoneBook.getPassword().equals(pass)){
                 System.out.println("ACCESS GRANTED");
@@ -349,7 +349,7 @@ public class Menu {
         }
     }
 
-    public void createonNewUserMenu(){
+    public void createNewUserMenu(){
         System.out.println("PLEASE, SET UP USER NAME AND PASSWORD");
         System.out.print("ENTER USER NAME: ");
         phoneBook.setUserName(CONSOLE_SCANNER.nextLine());

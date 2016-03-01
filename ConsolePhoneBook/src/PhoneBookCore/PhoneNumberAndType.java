@@ -1,4 +1,4 @@
-package PhoneBookCore;
+package phoneBookCore;
 
 import java.io.Serializable;
 

@@ -1,5 +1,5 @@
-package PhoneBookCore.validator;
+package phoneBookCore.validator;
 
 public enum Rule {
-    PHONE_NUMBER, FIRST_NAME, LAST_NAME, EMAIL, USER_NAME, PASSWORD, AGE_RANGE
+    PHONE_NUMBER, FIRST_NAME, LAST_NAME, EMAIL, USER_NAME, PASSWORD, AGE_RANGE, BIRTH_DATE
 }

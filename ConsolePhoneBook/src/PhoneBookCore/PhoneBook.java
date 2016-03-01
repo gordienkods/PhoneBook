@@ -1,4 +1,4 @@
-package PhoneBookCore;
+package phoneBookCore;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
 
 public class PhoneBook implements Serializable {
 
@@ -28,7 +27,7 @@ public class PhoneBook implements Serializable {
               phoneContact.setFirstName(tmpFirstName);
         }
         this.phoneBook.add(phoneContact);
-        System.out.println("ALL PHONE BOOK:\n" + this.phoneBook.toString());
+//        System.out.println("ALL PHONE BOOK:\n" + this.phoneBook.toString());
         serializeToFile();
         this.nameUniqueDigit = 1;
     }
@@ -55,7 +54,7 @@ public class PhoneBook implements Serializable {
             try (FileInputStream fis = new FileInputStream(this.phoneBookFile);
                  ObjectInputStream ois = new ObjectInputStream(fis)) {
                 phoneBook = (PhoneBook) ois.readObject();
-                System.out.println("'phoneBook' has been de serialized from file '" + this.phoneBookFile + "'");
+//                System.out.println("'phoneBook' has been de serialized from file '" + this.phoneBookFile + "'");
             }
         } catch (Exception e){
             System.out.println("ERROR: " + e.getMessage());
@@ -113,7 +112,7 @@ public class PhoneBook implements Serializable {
             try (FileOutputStream fos = new FileOutputStream(this.phoneBookFile);
                  ObjectOutputStream ous = new ObjectOutputStream(fos)) {
                  ous.writeObject(this);
-                 System.out.println("'phoneBook' has been serialized to file '" + this.phoneBookFile + "'");
+//                 System.out.println("'phoneBook' has been serialized to file '" + this.phoneBookFile + "'");
             }
         } catch (Exception e){
             System.out.println("ERROR: " + e.getMessage());
