@@ -1,10 +1,11 @@
 package phoneBookMenu;
 
-import phoneBookCore.PhoneBook;
-import phoneBookCore.PhoneContact;
-import phoneBookCore.PhoneNumberAndType;
+import phoneBookCore.phoneBook.PhoneBook;
+import phoneBookCore.phoneBook.PhoneContact;
+import phoneBookCore.phoneBook.PhoneNumberAndType;
 import phoneBookCore.validator.Rule;
 import phoneBookCore.validator.Validator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -76,7 +77,6 @@ public class Menu {
 
     private void createNewContactMenu() {
         PhoneContact phoneContact = new PhoneContact();
-        Validator validator = new Validator();
         String tmp;
 
         Integer phoneNumberCounter = 0;
@@ -90,26 +90,26 @@ public class Menu {
         do {
             System.out.print("\nFIRST NAME: ");
             tmp = CONSOLE_SCANNER.nextLine();
-            if (validator.validateThisData(tmp, Rule.FIRST_NAME) ) {
+            if (Validator.validateThisData(tmp, Rule.FIRST_NAME) ) {
                 phoneContact.setFirstName(tmp);
-                validator.clearErrors();
+                Validator.clearErrors();
                 break;
             } else {
-                System.out.println(validator.getErrors());
-                validator.clearErrors();
+                System.out.println(Validator.getErrors());
+                Validator.clearErrors();
             }
         } while (true);
 
         do {
             System.out.print("\nLAST NAME: ");
             tmp = CONSOLE_SCANNER.nextLine();
-            if (validator.validateThisData(tmp, Rule.LAST_NAME) ) {
+            if (Validator.validateThisData(tmp, Rule.LAST_NAME) ) {
                 phoneContact.setLastName(tmp);
-                validator.clearErrors();
+                Validator.clearErrors();
                 break;
             } else {
-                System.out.println(validator.getErrors());
-                validator.clearErrors();
+                System.out.println(Validator.getErrors());
+                Validator.clearErrors();
             }
         } while (true);
 
@@ -117,24 +117,24 @@ public class Menu {
 
         System.out.print("\nEMAIL: ");
         tmp = CONSOLE_SCANNER.nextLine();
-        if (validator.validateThisData(tmp, Rule.EMAIL) ) {
+        if (Validator.validateThisData(tmp, Rule.EMAIL) ) {
             phoneContact.setEmail(tmp);
         } else {
-            System.out.println(validator.getErrors());
+            System.out.println(Validator.getErrors());
         }
-        validator.clearErrors();
+        Validator.clearErrors();
 
 
         do {
             System.out.print("\nBIRTH DATE [dd.MM.yyyy]: ");
             tmp = CONSOLE_SCANNER.nextLine();
-            if (validator.validateThisData(tmp, Rule.BIRTH_DATE) ) {
+            if (Validator.validateThisData(tmp, Rule.BIRTH_DATE) ) {
                 phoneContact.setBirthDate(tmp);
-                validator.clearErrors();
+                Validator.clearErrors();
                 break;
             } else {
-                System.out.println(validator.getErrors());
-                validator.clearErrors();
+                System.out.println(Validator.getErrors());
+                Validator.clearErrors();
             }
         } while (true);
 
@@ -145,7 +145,6 @@ public class Menu {
     }
 
     private void addPhoneAndPhoneTypesSubMenu(PhoneContact phoneContact, Integer counter) {
-        Validator validator = new Validator();
         String tmpPhoneNumber, tmpPhoneType;
         if (counter <= 0){
             return;
@@ -153,9 +152,9 @@ public class Menu {
         for (int i = 0; i < counter; i++){
             System.out.print("\nPHONE NUMBER [" + (1+i) + " of " + counter +" ]: ");
             tmpPhoneNumber = CONSOLE_SCANNER.nextLine();
-            if(!validator.validateThisData(tmpPhoneNumber, Rule.PHONE_NUMBER)){
-                System.out.println(validator.getErrors());
-                validator.clearErrors();
+            if(!Validator.validateThisData(tmpPhoneNumber, Rule.PHONE_NUMBER)){
+                System.out.println(Validator.getErrors());
+                Validator.clearErrors();
                 return;
             }
             System.out.print("\nPHONE TYPE [" + (1+i) + " of " + counter +" ]: ");

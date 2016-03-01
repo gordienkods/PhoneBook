@@ -1,4 +1,4 @@
-import phoneBookCore.PhoneBook;
+import phoneBookCore.phoneBook.PhoneBook;
 import phoneBookMenu.Menu;
 
 public class Main {

@@ -21,19 +21,19 @@ public class Validator {
     private final static char [] INVALID_CHARS = new char [] {'%','#','@','/','+','&','?','*','\\'};
 
 
-    private StringBuilder errors = new StringBuilder("\n\nPLEASE FIX NEXT ERRORS:\n");
-    private List<Boolean> validationResults = new ArrayList<>();
+    private static StringBuilder errors = new StringBuilder("\n\nPLEASE FIX NEXT ERRORS:\n");
+    private static List<Boolean> validationResults = new ArrayList<>();
 
-    public void clearErrors(){
+    public static void clearErrors(){
         errors = new StringBuilder("\n\nPLEASE FIX NEXT ERRORS:\n");
         validationResults = new ArrayList<>();
     }
 
-    public String getErrors() {
+    public static String getErrors() {
         return errors.toString();
     }
 
-    public Boolean validateThisData(String inputData, Rule validationRule){
+    public static Boolean validateThisData(String inputData, Rule validationRule){
         switch (validationRule){
             case FIRST_NAME : {
                 if ( !lengthValidator(inputData, FIRST_NAME_MAX_LENGTH, "FIRST NAME")){
@@ -72,7 +72,7 @@ public class Validator {
         }
     }
 
-    private Boolean lengthValidator(String inputString, Integer value, String msg){
+    private static Boolean lengthValidator(String inputString, Integer value, String msg){
         if(inputString.length() > value){
             errors.append(msg + " should be no longer than '" + value + "' ");
             return false;
@@ -80,7 +80,7 @@ public class Validator {
         return true;
     }
 
-    private Boolean invalidCharsValidator(String inputString, char [] invalidChars, String msg){
+    private static Boolean invalidCharsValidator(String inputString, char [] invalidChars, String msg){
         StringBuilder sb = new StringBuilder("[ ");
         Boolean result = true;
         for (char charInFirstName : inputString.toCharArray()){
@@ -103,7 +103,7 @@ public class Validator {
         return result;
     }
 
-    private Boolean validCharsValidator(String inputString, char [] validChars, String msg){
+    private static Boolean validCharsValidator(String inputString, char [] validChars, String msg){
         StringBuilder sb = new StringBuilder("[ ");
         Boolean result = true;
         for (char charInString : inputString.toCharArray()){
@@ -126,7 +126,7 @@ public class Validator {
         return result;
     }
 
-    private Boolean mandatoryCharsValidator (String inputString, char [] mandatoryChars, String msg) {
+    private static Boolean mandatoryCharsValidator (String inputString, char [] mandatoryChars, String msg) {
         StringBuilder sb = new StringBuilder("[ ");
         for (char  mandatoryChar : mandatoryChars){
             if (inputString.indexOf( mandatoryChar) < 0) {
@@ -143,7 +143,7 @@ public class Validator {
         }
     }
 
-    private Boolean checkValidationResults(List<Boolean> validationResults){
+    private static Boolean checkValidationResults(List<Boolean> validationResults){
         for (Boolean validationResult :  validationResults){
             if (!validationResult) {
                 return false;
@@ -152,7 +152,7 @@ public class Validator {
         return true;
     }
 
-    private Boolean birthDateValidator (String inputString, String datePattern){
+    private static Boolean birthDateValidator (String inputString, String datePattern){
         DateTimeFormatter dateFormatPattern = DateTimeFormatter.ofPattern(datePattern);
         try {
             LocalDate.parse(inputString, dateFormatPattern);
